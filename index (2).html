@@ -1,0 +1,2624 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asesmen Akhir Semester Ganjil - IPS/Sejarah | MAN 1 Kabupaten Gorontalo</title>
+  <style>
+    /* ==========================================================================
+       VARIABEL TEMA & RESET DASAR (HITAM ELEGAN & EMAS MENYALA)
+       ========================================================================== */
+    :root {
+      --bg-primary: #09090b;
+      --bg-secondary: #121216;
+      --bg-card: #18181f;
+      --bg-card-hover: #20202a;
+      --gold-primary: #f59e0b;
+      --gold-bright: #fbbf24;
+      --gold-glow: rgba(251, 191, 36, 0.35);
+      --gold-dim: rgba(245, 158, 11, 0.15);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(251, 191, 36, 0.25);
+      --success: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.15);
+      --danger: #ef4444;
+      --danger-bg: rgba(239, 68, 68, 0.15);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(245, 158, 11, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 90%, rgba(251, 191, 36, 0.06) 0%, transparent 40%);
+      overflow-x: hidden;
+    }
+
+    /* ==========================================================================
+       HEADER & IDENTITAS MADRASAH
+       ========================================================================== */
+    .app-header {
+      background: linear-gradient(180deg, #141419 0%, #09090b 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .emblem-madrasah {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--gold-bright), #b45309);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px var(--gold-glow);
+      flex-shrink: 0;
+    }
+
+    .brand-text h1 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .brand-text p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .status-badges {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge {
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--gold-bright);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* ==========================================================================
+       CONTAINER UTAMA & KARTU UI
+       ========================================================================== */
+    .main-container {
+      max-width: 1100px;
+      margin: 1.5rem auto 3rem;
+      padding: 0 1.25rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .card-subtitle {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ==========================================================================
+       TOMBOL INTERAKTIF BESAR & KONTROL FORM
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      min-height: 48px;
+      text-align: center;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold-primary));
+      color: #09090b;
+      box-shadow: 0 4px 15px var(--gold-glow);
+    }
+
+    .btn-gold:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(251, 191, 36, 0.55);
+      filter: brightness(1.05);
+    }
+
+    .btn-gold:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold-bright);
+      border: 1.5px solid var(--gold-primary);
+    }
+
+    .btn-outline:hover:not(:disabled) {
+      background: var(--gold-dim);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold-bright);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-size: 1rem;
+      background: var(--bg-secondary);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: var(--text-main);
+      outline: none;
+      transition: var(--transition);
+      min-height: 48px;
+    }
+
+    .form-control:focus {
+      border-color: var(--gold-bright);
+      box-shadow: 0 0 0 3px var(--gold-dim);
+    }
+
+    /* ==========================================================================
+       SCREEN MANAGEMENT
+       ========================================================================== */
+    .screen {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       TABS & AREA UJIAN INTERAKTIF
+       ========================================================================== */
+    .exam-top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      background: var(--bg-secondary);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .student-pill {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .student-pill strong {
+      color: var(--gold-bright);
+      font-size: 1rem;
+    }
+
+    .student-pill span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .progress-wrapper {
+      flex: 1;
+      min-width: 200px;
+      max-width: 360px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      margin-bottom: 0.35rem;
+      color: var(--text-muted);
+    }
+
+    .progress-bar-bg {
+      height: 10px;
+      background: #272732;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold-primary), var(--gold-bright));
+      box-shadow: 0 0 10px var(--gold-glow);
+      transition: width 0.3s ease;
+    }
+
+    /* ==========================================================================
+       LAYOUT GRID SOAL & NAVIGASI NOMOR
+       ========================================================================== */
+    .exam-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .exam-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .topic-tag {
+      display: inline-block;
+      padding: 0.3rem 0.75rem;
+      background: var(--gold-dim);
+      color: var(--gold-bright);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 0.85rem;
+    }
+
+    .question-text {
+      font-size: 1.12rem;
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 1.35rem;
+      line-height: 1.65;
+    }
+
+    /* Opsi Pilihan Ganda */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .option-btn {
+      width: 100%;
+      text-align: left;
+      background: var(--bg-secondary);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1.15rem;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .option-btn:hover:not(.locked) {
+      border-color: var(--gold-primary);
+      background: var(--bg-card-hover);
+      transform: translateX(4px);
+    }
+
+    .option-letter {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--gold-bright);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+
+    .option-btn.selected {
+      border-color: var(--gold-bright);
+      background: var(--gold-dim);
+    }
+
+    .option-btn.selected .option-letter {
+      background: var(--gold-bright);
+      color: #09090b;
+    }
+
+    .option-btn.correct {
+      border-color: var(--success);
+      background: var(--success-bg);
+    }
+
+    .option-btn.correct .option-letter {
+      background: var(--success);
+      color: #fff;
+    }
+
+    .option-btn.wrong {
+      border-color: var(--danger);
+      background: var(--danger-bg);
+    }
+
+    .option-btn.wrong .option-letter {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    /* ==========================================================================
+       WIDGET INTERAKTIF KHUSUS TIPE SOAL HOTS (PG KOMPLEKS, B/S, JODOH, ISIAN)
+       ========================================================================== */
+    .interactive-lab {
+      background: #101015;
+      border: 1px dashed var(--gold-primary);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .lab-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .checkbox-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      border: 2px solid var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      color: transparent;
+      transition: var(--transition);
+    }
+
+    .option-btn.checked .checkbox-mark {
+      background: var(--gold-bright);
+      color: #09090b;
+    }
+
+    /* Tabel Pernyataan Benar / Salah */
+    .bs-row {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .bs-statement {
+      flex: 1;
+      min-width: 220px;
+      font-size: 0.95rem;
+    }
+
+    .bs-toggle-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .bs-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      background: var(--bg-secondary);
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      min-width: 82px;
+      transition: var(--transition);
+    }
+
+    .bs-btn:hover:not(:disabled) {
+      border-color: var(--gold-bright);
+    }
+
+    .bs-btn.active-b {
+      background: var(--gold-bright);
+      color: #09090b;
+      border-color: var(--gold-bright);
+    }
+
+    .bs-btn.active-s {
+      background: var(--gold-bright);
+      color: #09090b;
+      border-color: var(--gold-bright);
+    }
+
+    .bs-btn.eval-right {
+      background: var(--success);
+      color: #fff;
+      border-color: var(--success);
+    }
+
+    .bs-btn.eval-wrong {
+      background: var(--danger);
+      color: #fff;
+      border-color: var(--danger);
+    }
+
+    /* Menjodohkan */
+    .match-row {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.75rem;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    @media (max-width: 680px) {
+      .match-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .match-select {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      background: var(--bg-secondary);
+      border: 1.5px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-main);
+      font-size: 0.9rem;
+    }
+
+    /* Isian Singkat */
+    .short-input-group {
+      margin-bottom: 0.9rem;
+    }
+
+    .short-input-group label {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--gold-bright);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    /* Kalkulator Waktu Paruh Radiokarbon (Khusus Soal 25) */
+    .carbon-sim {
+      background: rgba(251, 191, 36, 0.06);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .slider-control {
+      width: 100%;
+      accent-color: var(--gold-bright);
+      height: 8px;
+      cursor: pointer;
+      margin: 0.6rem 0;
+    }
+
+    /* ==========================================================================
+       DIALOG UMPAN BALIK EDUKATIF (REAL-TIME FEEDBACK)
+       ========================================================================== */
+    .feedback-box {
+      margin-top: 1.25rem;
+      padding: 1.15rem;
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--gold-bright);
+      background: rgba(251, 191, 36, 0.08);
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.is-correct {
+      border-left-color: var(--success);
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .feedback-box.is-wrong {
+      border-left-color: var(--danger);
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .feedback-header {
+      font-weight: 700;
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feedback-body {
+      font-size: 0.92rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       NAVIGASI NOMOR SOAL (SIDEBAR)
+       ========================================================================== */
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+      margin-top: 0.85rem;
+    }
+
+    .nav-num {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--bg-secondary);
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .nav-num:hover {
+      border-color: var(--gold-bright);
+    }
+
+    .nav-num.active {
+      border: 2px solid var(--gold-bright);
+      box-shadow: 0 0 10px var(--gold-glow);
+    }
+
+    .nav-num.answered-correct {
+      background: var(--success);
+      color: #fff;
+      border-color: var(--success);
+    }
+
+    .nav-num.answered-partial {
+      background: var(--gold-primary);
+      color: #09090b;
+      border-color: var(--gold-bright);
+    }
+
+    .nav-num.answered-wrong {
+      background: var(--danger);
+      color: #fff;
+      border-color: var(--danger);
+    }
+
+    .question-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       HALAMAN HASIL & REKAP GURU (CSV EXPORT)
+       ========================================================================== */
+    .score-hero {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.14) 0%, transparent 70%);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.5rem;
+    }
+
+    .score-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid var(--gold-bright);
+      box-shadow: 0 0 30px var(--gold-glow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      background: var(--bg-secondary);
+    }
+
+    .score-circle span {
+      font-size: 2.35rem;
+      font-weight: 800;
+      color: var(--gold-bright);
+      line-height: 1;
+    }
+
+    .score-circle small {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .stat-box h4 {
+      font-size: 1.5rem;
+      color: var(--gold-bright);
+    }
+
+    .stat-box p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Tabel Rekap Nilai Guru */
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th {
+      background: #101016;
+      color: var(--gold-bright);
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+    }
+
+    tr:hover td {
+      background: rgba(251, 191, 36, 0.04);
+    }
+
+    /* Custom Notification Toast (Pengganti Alert) */
+    .toast-msg {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--gold-bright);
+      color: var(--text-main);
+      padding: 0.9rem 1.25rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      display: none;
+      max-width: 340px;
+      font-size: 0.9rem;
+    }
+
+    .toast-msg.show {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    /* Modal Konfirmasi Selesai */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 500;
+      padding: 1rem;
+    }
+
+    .modal-backdrop.show {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--gold-bright);
+      border-radius: var(--radius-lg);
+      max-width: 440px;
+      width: 100%;
+      padding: 1.75rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       HEADER MADRASAH
+       ======================================================================== -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-box">
+        <div class="emblem-madrasah" aria-hidden="true">
+          <!-- Ikon Bintang & Buku Emas Kemenag/Madrasah -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#09090b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>MAN 1 Kabupaten Gorontalo</h1>
+          <p>Asesmen Akhir Semester Ganjil &bull; IPS / Sejarah (Kelas X / Fase E)</p>
+        </div>
+      </div>
+
+      <div class="status-badges">
+        <span class="badge" title="Moda Offline Mandiri">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          100% Offline
+        </span>
+        <button type="button" class="btn btn-outline" style="padding: 0.4rem 0.9rem; min-height: 36px; font-size: 0.82rem;" onclick="switchScreen('screen-teacher')">
+          Rekap Guru
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- ======================================================================
+         LAYAR 1: IDENTITAS PESERTA & SIMULASI PENDAHULUAN
+         ====================================================================== -->
+    <section id="screen-login" class="screen active">
+      <div class="card">
+        <h2 class="card-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Identitas Peserta Asesmen
+        </h2>
+        <p class="card-subtitle">
+          Pilih kelas dan nama lengkap Anda sesuai daftar peserta resmi MAN 1 Kabupaten Gorontalo sebelum memulai asesmen.
+        </p>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="select-kelas">1. Pilih Kelas (Fase E)</label>
+            <select id="select-kelas" class="form-control" onchange="populateStudents()">
+              <option value="">-- Pilih Kelas Anda --</option>
+              <option value="XA">Kelas XA</option>
+              <option value="XB">Kelas XB</option>
+              <option value="XC">Kelas XC</option>
+              <option value="XD">Kelas XD</option>
+              <option value="XE">Kelas XE</option>
+              <option value="XF">Kelas XF</option>
+              <option value="XG">Kelas XG</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="select-nama">2. Pilih Nama Lengkap Siswa</label>
+            <select id="select-nama" class="form-control" disabled>
+              <option value="">-- Pilih Kelas Terlebih Dahulu --</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+          <div style="font-size: 0.85rem; color: var(--text-muted);">
+            <strong>Cakupan Materi:</strong> Pengantar Ilmu Sejarah, Penelitian Sejarah, Zaman Prasejarah &amp; Batu (25 Butir Soal HOTS C4–C5)
+          </div>
+          <button type="button" class="btn btn-gold" onclick="startExam()">
+            Mulai Asesmen Sekarang
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- KARTU KISI-KISI SOAL (DI BAWAH MENU IDENTITAS PESERTA ASESMEN) -->
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+          <div>
+            <h2 class="card-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              Kisi-Kisi Soal Asesmen Akhir Semester Ganjil
+            </h2>
+            <p class="card-subtitle" style="margin-bottom: 0;">
+              Kurikulum Merdeka &bull; Waktu Usulan: 90 Menit &bull; 25 Butir Soal HOTS (Level Kognitif C4–C5, Skor Total 100)
+            </p>
+          </div>
+          <div style="min-width: 240px;">
+            <select id="filter-kisi-materi" class="form-control" style="min-height: 42px; padding: 0.55rem 0.9rem; font-size: 0.9rem;" onchange="renderKisiKisiTable()">
+              <option value="ALL">Semua Materi (25 Nomor)</option>
+              <option value="Pengantar Ilmu Sejarah">1. Pengantar Ilmu Sejarah (8 Soal)</option>
+              <option value="Penelitian Sejarah">2. Penelitian Sejarah (9 Soal)</option>
+              <option value="Zaman Prasejarah dan Zaman Batu">3. Zaman Prasejarah &amp; Batu (8 Soal)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Ringkasan Bentuk Soal & Bobot Skor -->
+        <div class="stats-row" style="margin-bottom: 1.25rem;">
+          <div class="stat-box" style="padding: 0.75rem;">
+            <h4 style="font-size: 1.15rem;">No. 1–9</h4>
+            <p>Pilihan Ganda (36 Poin)</p>
+          </div>
+          <div class="stat-box" style="padding: 0.75rem;">
+            <h4 style="font-size: 1.15rem;">No. 10–13</h4>
+            <p>PG Kompleks (16 Poin)</p>
+          </div>
+          <div class="stat-box" style="padding: 0.75rem;">
+            <h4 style="font-size: 1.15rem;">No. 14–17</h4>
+            <p>Benar / Salah (16 Poin)</p>
+          </div>
+          <div class="stat-box" style="padding: 0.75rem;">
+            <h4 style="font-size: 1.15rem;">No. 18–21</h4>
+            <p>Menjodohkan (16 Poin)</p>
+          </div>
+          <div class="stat-box" style="padding: 0.75rem;">
+            <h4 style="font-size: 1.15rem;">No. 22–25</h4>
+            <p>Isian Singkat (16 Poin)</p>
+          </div>
+        </div>
+
+        <div class="table-responsive" style="max-height: 360px; overflow-y: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 55px;">No</th>
+                <th>Materi Pokok</th>
+                <th>Indikator Pencapaian Kompetensi</th>
+                <th>Bentuk Soal</th>
+                <th>Level</th>
+                <th style="width: 65px;">Skor</th>
+              </tr>
+            </thead>
+            <tbody id="kisi-kisi-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         LAYAR 2: LEMBAR ASESMEN INTERAKTIF
+         ====================================================================== -->
+    <section id="screen-exam" class="screen">
+      <!-- Bar Status Peserta & Progres -->
+      <div class="exam-top-bar">
+        <div class="student-pill">
+          <strong id="display-student-name">Nama Siswa</strong>
+          <span id="display-student-class">Kelas X &bull; IPS / Sejarah</span>
+        </div>
+
+        <div class="progress-wrapper">
+          <div class="progress-label">
+            <span>Progres Pengerjaan</span>
+            <span id="progress-text">0 / 25 Terjawab</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="progress-fill" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="badge" id="timer-display">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span id="elapsed-time">00:00</span>
+        </div>
+      </div>
+
+      <div class="exam-layout">
+        <!-- Kartu Soal Utama -->
+        <div class="card" style="margin-bottom: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <span id="q-topic-badge" class="topic-tag">Materi: Pengantar Ilmu Sejarah</span>
+              <span id="q-type-badge" class="topic-tag" style="background: rgba(255,255,255,0.06); color: var(--text-main);">Pilihan Ganda &bull; C4</span>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--gold-bright);" id="q-number-label">Soal 1 dari 25</span>
+          </div>
+
+          <div id="q-text" class="question-text">
+            Memuat pertanyaan...
+          </div>
+
+          <!-- Area Kontrol Interaktif Khusus -->
+          <div id="q-interactive-area"></div>
+
+          <!-- Daftar Opsi Pilihan Ganda -->
+          <div id="q-options" class="options-list"></div>
+
+          <!-- Kotak Umpan Balik Pedagogis Real-Time -->
+          <div id="q-feedback" class="feedback-box">
+            <div id="feedback-title" class="feedback-header"></div>
+            <div id="feedback-text" class="feedback-body"></div>
+          </div>
+
+          <!-- Navigasi Bawah Kartu Soal -->
+          <div class="question-footer-nav">
+            <button type="button" id="btn-prev" class="btn btn-outline" onclick="navigateQuestion(-1)">
+              &larr; Sebelumnya
+            </button>
+
+            <button type="button" id="btn-next" class="btn btn-gold" onclick="navigateQuestion(1)">
+              Selanjutnya &rarr;
+            </button>
+
+            <button type="button" id="btn-finish" class="btn btn-gold" style="display: none;" onclick="openFinishModal()">
+              Selesai &amp; Lihat Nilai
+            </button>
+          </div>
+        </div>
+
+        <!-- Sidebar Navigasi Nomor -->
+        <aside class="card" style="padding: 1.25rem;">
+          <h3 style="font-size: 0.95rem; color: var(--gold-bright); margin-bottom: 0.35rem;">Navigasi Butir Soal</h3>
+          <p style="font-size: 0.78rem; color: var(--text-muted);">Ketuk nomor untuk berpindah soal.</p>
+          <div id="nav-grid" class="nav-grid"></div>
+
+          <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.78rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.4rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="width: 12px; height: 12px; border-radius: 3px; background: var(--success); display: inline-block;"></span> Skor Maksimal (4 Poin)
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="width: 12px; height: 12px; border-radius: 3px; background: var(--gold-primary); display: inline-block;"></span> Skor Parsial (1–2 Poin)
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="width: 12px; height: 12px; border-radius: 3px; background: var(--danger); display: inline-block;"></span> Perlu Pendalaman (0 Poin)
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="width: 12px; height: 12px; border-radius: 3px; background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.2); display: inline-block;"></span> Belum Dijawab
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-outline" style="width: 100%; margin-top: 1.1rem; font-size: 0.88rem;" onclick="openFinishModal()">
+            Kumpulkan Jawaban
+          </button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         LAYAR 3: HASIL ASESMEN & ANALISIS KOMPETENSI SISWA
+         ====================================================================== -->
+    <section id="screen-result" class="screen">
+      <div class="card">
+        <div class="score-hero">
+          <span class="badge" style="margin-bottom: 0.75rem;">Laporan Capaian Asesmen Akhir Semester</span>
+          <h2 id="res-student-name" style="font-size: 1.45rem; color: var(--text-main);">Nama Peserta</h2>
+          <p id="res-student-meta" style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Kelas XA &bull; Waktu Pengerjaan: 05:12</p>
+
+          <div class="score-circle">
+            <span id="res-final-score">0</span>
+            <small>NILAI AKHIR</small>
+          </div>
+
+          <p id="res-predicate" style="font-weight: 700; color: var(--gold-bright); font-size: 1.05rem;"></p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-box">
+            <h4 id="res-correct-count" style="color: var(--success);">0</h4>
+            <p>Benar Penuh (4 Poin)</p>
+          </div>
+          <div class="stat-box">
+            <h4 id="res-wrong-count" style="color: var(--danger);">0</h4>
+            <p>Belum Tepat / Parsial</p>
+          </div>
+          <div class="stat-box">
+            <h4 id="res-duration">00:00</h4>
+            <p>Durasi Pengerjaan</p>
+          </div>
+        </div>
+
+        <!-- Analisis Penguasaan Per Topik -->
+        <h3 style="font-size: 1.05rem; color: var(--gold-bright); margin-bottom: 0.75rem;">Analisis Penguasaan Kompetensi Materi</h3>
+        <div id="topic-mastery-list" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.75rem;"></div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+          <button type="button" class="btn btn-gold" onclick="switchScreen('screen-teacher')">
+            Lihat Rekapitulasi Kelas (Guru)
+          </button>
+          <button type="button" class="btn btn-outline" onclick="resetToLogin()">
+            Peserta Berikutnya
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         LAYAR 4: PANEL REKAPITULASI NILAI GURU (SESUAI FORMAT TABEL PDF)
+         ====================================================================== -->
+    <section id="screen-teacher" class="screen">
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <h2 class="card-title">Rekapitulasi Nilai Asesmen Semester Ganjil</h2>
+            <p class="card-subtitle" style="margin-bottom: 0;">
+              Data tersimpan otomatis secara lokal di perangkat ini. Anda dapat mengunduh laporan ke format Excel/CSV.
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-gold" onclick="exportCSV()">
+              Unduh Rekap (.CSV / Excel)
+            </button>
+            <button type="button" class="btn btn-outline" onclick="switchScreen('screen-login')">
+              Kembali ke Beranda
+            </button>
+          </div>
+        </div>
+
+        <div class="form-grid" style="margin-bottom: 1rem;">
+          <div class="form-group">
+            <label for="filter-kelas-rekap">Filter Kelas</label>
+            <select id="filter-kelas-rekap" class="form-control" onchange="renderTeacherTable()">
+              <option value="ALL">Semua Kelas (XA - XG)</option>
+              <option value="XA">Kelas XA</option>
+              <option value="XB">Kelas XB</option>
+              <option value="XC">Kelas XC</option>
+              <option value="XD">Kelas XD</option>
+              <option value="XE">Kelas XE</option>
+              <option value="XF">Kelas XF</option>
+              <option value="XG">Kelas XG</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="filter-status-rekap">Filter Status Pengerjaan</label>
+            <select id="filter-status-rekap" class="form-control" onchange="renderTeacherTable()">
+              <option value="ALL">Tampilkan Semua Siswa</option>
+              <option value="DONE">Sudah Mengerjakan</option>
+              <option value="PENDING">Belum Mengerjakan</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Waktu Pengerjaan</th>
+                <th>Nama Siswa</th>
+                <th>Kelas</th>
+                <th>Jumlah Benar</th>
+                <th>Jumlah Salah</th>
+                <th>Nilai Akhir</th>
+                <th>Detail Jawaban</th>
+              </tr>
+            </thead>
+            <tbody id="teacher-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal Konfirmasi Pengumpulan -->
+  <div id="finish-modal" class="modal-backdrop">
+    <div class="modal-card">
+      <h3 style="color: var(--gold-bright); font-size: 1.25rem; margin-bottom: 0.6rem;">Selesaikan Asesmen?</h3>
+      <p id="modal-summary-text" style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.5rem;">
+        Pastikan seluruh butir soal telah Anda telaah dengan saksama.
+      </p>
+      <div style="display: flex; gap: 0.75rem; justify-content: center;">
+        <button type="button" class="btn btn-outline" onclick="closeFinishModal()">Periksa Kembali</button>
+        <button type="button" class="btn btn-gold" onclick="submitExam()">Ya, Kumpulkan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifikasi Non-Blocking -->
+  <div id="toast-box" class="toast-msg"></div>
+
+  <script>
+    /* ==========================================================================
+       1. DATA KISI-KISI SOAL & DATABASE SISWA MAN 1 KAB. GORONTALO (XA - XG)
+       ========================================================================== */
+    const KISI_KISI_DATA = [
+      { no: 1, materi: "Pengantar Ilmu Sejarah", indikator: "Menganalisis contoh sejarah sebagai ilmu dan membedakannya dari peristiwa, kisah, dan seni", bentuk: "Pilihan Ganda", level: "C4", skor: 4 },
+      { no: 2, materi: "Pengantar Ilmu Sejarah", indikator: "Menganalisis perubahan dan keberlanjutan pada suatu kasus", bentuk: "Pilihan Ganda", level: "C4", skor: 4 },
+      { no: 3, materi: "Pengantar Ilmu Sejarah", indikator: "Menganalisis pendekatan diakronis dan sinkronis", bentuk: "Pilihan Ganda", level: "C4", skor: 4 },
+      { no: 4, materi: "Penelitian Sejarah", indikator: "Menganalisis tahap verifikasi dalam penelitian sejarah", bentuk: "Pilihan Ganda", level: "C4", skor: 4 },
+      { no: 5, materi: "Penelitian Sejarah", indikator: "Mengevaluasi sumber primer dan sekunder", bentuk: "Pilihan Ganda", level: "C5", skor: 4 },
+      { no: 6, materi: "Penelitian Sejarah", indikator: "Mengevaluasi keaslian dokumen dengan kritik ekstern", bentuk: "Pilihan Ganda", level: "C5", skor: 4 },
+      { no: 7, materi: "Zaman Prasejarah dan Zaman Batu", indikator: "Menyimpulkan secara kritis dari bukti terbatas", bentuk: "Pilihan Ganda", level: "C5", skor: 4 },
+      { no: 8, materi: "Zaman Prasejarah dan Zaman Batu", indikator: "Menganalisis urutan periodisasi dari ciri kebudayaan", bentuk: "Pilihan Ganda", level: "C4", skor: 4 },
+      { no: 9, materi: "Zaman Prasejarah dan Zaman Batu", indikator: "Menafsirkan temuan untuk menentukan periode dan pola hidup", bentuk: "Pilihan Ganda", level: "C4", skor: 4 },
+      { no: 10, materi: "Pengantar Ilmu Sejarah", indikator: "Menganalisis fungsi atau manfaat sejarah dari kasus", bentuk: "PG Kompleks", level: "C4", skor: 4 },
+      { no: 11, materi: "Penelitian Sejarah", indikator: "Mengidentifikasi sumber primer", bentuk: "PG Kompleks", level: "C4", skor: 4 },
+      { no: 12, materi: "Penelitian Sejarah", indikator: "Mengevaluasi kredibilitas sumber (kritik intern)", bentuk: "PG Kompleks", level: "C5", skor: 4 },
+      { no: 13, materi: "Zaman Prasejarah dan Zaman Batu", indikator: "Mengidentifikasi bukti kebudayaan Neolitikum", bentuk: "PG Kompleks", level: "C4", skor: 4 },
+      { no: 14, materi: "Pengantar Ilmu Sejarah", indikator: "Menganalisis konsep dasar sejarah", bentuk: "Benar/Salah", level: "C4", skor: 4 },
+      { no: 15, materi: "Penelitian Sejarah", indikator: "Menganalisis tahapan metode penelitian sejarah", bentuk: "Benar/Salah", level: "C4", skor: 4 },
+      { no: 16, materi: "Zaman Prasejarah dan Zaman Batu", indikator: "Menganalisis kebudayaan Megalitikum", bentuk: "Benar/Salah", level: "C4", skor: 4 },
+      { no: 17, materi: "Zaman Prasejarah dan Zaman Batu", indikator: "Menganalisis konsep prasejarah dan periodisasi", bentuk: "Benar/Salah", level: "C4", skor: 4 },
+      { no: 18, materi: "Pengantar Ilmu Sejarah", indikator: "Menjodohkan konsep sejarah dengan contoh kasus", bentuk: "Menjodohkan", level: "C4", skor: 4 },
+      { no: 19, materi: "Penelitian Sejarah", indikator: "Menjodohkan tahapan penelitian dengan kegiatannya", bentuk: "Menjodohkan", level: "C4", skor: 4 },
+      { no: 20, materi: "Penelitian Sejarah", indikator: "Menjodohkan contoh dengan jenis sumber sejarah", bentuk: "Menjodohkan", level: "C4", skor: 4 },
+      { no: 21, materi: "Zaman Prasejarah dan Zaman Batu", indikator: "Menjodohkan temuan dengan periode kebudayaan", bentuk: "Menjodohkan", level: "C4", skor: 4 },
+      { no: 22, materi: "Pengantar Ilmu Sejarah", indikator: "Menerapkan pendekatan diakronis dan sinkronis", bentuk: "Isian Singkat", level: "C4", skor: 4 },
+      { no: 23, materi: "Pengantar Ilmu Sejarah", indikator: "Menganalisis fungsi sejarah dari pernyataan siswa", bentuk: "Isian Singkat", level: "C4", skor: 4 },
+      { no: 24, materi: "Penelitian Sejarah", indikator: "Mengevaluasi kredibilitas dua catatan", bentuk: "Isian Singkat", level: "C5", skor: 4 },
+      { no: 25, materi: "Zaman Prasejarah dan Zaman Batu", indikator: "Menghitung dan menafsirkan umur sampel radiokarbon", bentuk: "Isian Singkat", level: "C5", skor: 4 }
+    ];
+
+    const STUDENT_DATABASE = {
+      XA: [
+        "ABDUL MUHLIS A. DJAFAR", "ADZRA AZKAYRA MUSYRIFAH TUTUPO", "AFIFAH ADDAWIAH DJAFAR",
+        "ANDI SALSABILA MARZA", "ANNISA SAFARINI TANGKUDUNG", "ANISAFITRI DEHI",
+        "DWI FELYSHA QUMAYRAH PONTOH", "FAJAR AHMADINEJAD PAGOCA", "HAFISHA ZAHRATUL ADAM",
+        "HANIFAH ALKHUMAIROH DURAND", "HANIFAH AMALIYA", "INDAH ZAHRATUNNIZMA",
+        "MOH. DEWA RAMDAN NUSSA", "MUTIA TULLUTFIH", "NAURA ZIVANNA ABDULLAH",
+        "NUR FADHILAH MUNAWWARAH", "NUR FADILLAH KADIR", "NURFITRIAH MANTAU",
+        "PUTRI FAUZZIYAH KAU", "RIFDAH IBTISAM EL GHIFARY IR. HULA", "SAFA NAAZIRA BAHKRI",
+        "SITI CHIRANIAH AZZAHRA MUSA", "SITI MUTIYA NUNE", "SITI QOMARIYAH"
+      ],
+      XB: [
+        "AGNI ARIFA PUTRI PARMAN", "ALMIRAH AZZAHRA DJABI", "ANISA RAHMATIYA BAKARI",
+        "AWALIA ARFA BIIYA", "BAIQ NURUL AULIA PUTRI", "FARA PUSPITA KUKE",
+        "ISNA ISMAIL", "ISRA ADELIA RAHMAN", "KEISYA PUTRI HALUTI",
+        "MOHAMAD ZULFAHMI I TOBUHU. JR", "MUHAMAD SAPUTRA ADAM", "NAILAH KHAIRUNNISA",
+        "NAZMA NURHIDAYAH TANIU", "NAZWA AYUNINGSI TANUS", "NAZWA MAHARANI PUTRI D",
+        "RAHAYU GALUH LARASATI SALOLA", "SALSABILA HAMID", "SITI KHUMAIRAH ABAS",
+        "SRI RAHMAWATI HANAPI", "SYAWALINA PUTRI PRATAMI BAKARI", "SYIFA KHAIRUNNISA YUNUS",
+        "SHIFA HAFIDZAH", "SRI NOVITA HIBALU", "TITINDAH AZ-ZAHRA V. GOBEL"
+      ],
+      XC: [
+        "ABDUL RAJAK HANAPI", "ACHA NUR HIDAYANTI", "AINUN USMAN",
+        "AVRIL LIA PUTRI MASI", "AMELIA KUM", "FATMA IGIRISA",
+        "GENDIS GALA TALIPI", "HANA SEPTIA IZA NAHDIAH", "ISTIQOMA LABUNA",
+        "KOMAIRA BALISE", "MOH. FARHAT YASIN", "MOHAMAD KHUSNUL MUBAROK",
+        "NADIYA AINTI DILO", "NAJWA AULIA SYAM", "NUR AFNI PAKALESSY",
+        "NUR AINI PAKALESSY", "NURALIZA IGIRISA", "NURJANAH HUTUJI",
+        "NURJANAH WARTABONE", "NURMALA MUSA", "RAHMIYATI ADAY",
+        "SINAR MALIK", "SYAHRIN MUHAMAD", "TIYA KUSMIYAT",
+        "TRI ALISYA ZOHRA AHMAD", "VIRAWATI M. ALI"
+      ],
+      XD: [
+        "ABYAN DAFA TIRTA LAHAY", "ADILLA EVELYN ARCELIA", "ADITYA GANI",
+        "AHMAD MUHTARAM SUDIRWAN", "AISYAH ISNAIN UMAR", "ATAYA ALFARIZQI RIVAI",
+        "AHZAM IMAMAL SAWALI", "DHAWY DUDE RAMADHAN", "ENDRAFLISMAIL AK. DALANGGO",
+        "FARIID RAHMATULLAAH LAMATENGGO", "FEISYA APRILIA TUU", "HANIFA SAFITRI MULISA",
+        "KHOIRUL HAFIZH NAFSAN ISMAIL", "MOHAMAD DAIYAN SYIDAD ALI", "MOHAMMAD ZIYAD R. PATAMANI",
+        "MUH. RA'ID ABQARY H.", "MUH. RADITYA ANUGRAH MOKODOMPIS", "MUHAMAD DZAHWAN SUKAMDANI",
+        "MUHAMAD FERDIANSYAH UMAMAH", "MUHAMMAD REZQY ISMAIL", "NABIL PRABU ALFATH DIKO",
+        "NURRIDHO Z.GOBEL", "SYAURAH ANIRIDYA K. BADERAN", "ZHEVANA AZALEA HARUN"
+      ],
+      XE: [
+        "ADENIN POTABUGA", "ALFARUQ RAHMAT ADAY", "AZQILA L BINOL",
+        "ASMAWATI MOHAMAD", "CAHYA RINANDA ISMAIL", "DIMAS PUTRA ANGIO",
+        "FAHRI ABDULLAH", "FRIDITA ANGRAINI OTAYA", "ISMAIL PUTRA D. SALEH",
+        "JESIKA ABDULLAH", "MEISYAH SALSABILLAH PUTRI P. NASIM", "MELSI A. USMAN",
+        "MOH. TAUFIK TUNA", "MOHAMAD ALFARIZI PAPARO", "MOHAMAD FACHRUROZI TUNAIYA",
+        "MUHAMMAD FAKHRI MERTOSONO", "MUHAMMAD FAREL KALUKU", "MUHAMMAD FARHAN ADAM",
+        "MUHAMMAD HAJRAN JAMIL USMAN", "NURUL MAGFIRAH LABUNA", "TRI FANDI IBRAHIM",
+        "ZIYAD ABDUL RASYAD KHALY", "ZAHRA HUMAIRAH OTOLUWA"
+      ],
+      XF: [
+        "ABDUL MUFID H. MALOWA", "AHLAN RAMADHAN YASIN", "AHMAD MAULANA RIZAL PASI",
+        "ALVAIS TINUMBIA", "AMINA TUSYA'DIA", "ANNISA RAHMATULLAH HARUN",
+        "ANNISA ZAFIRAH JAILANI", "CHAIRUL AZZAM MALIPI", "DINDA KEYRA PUTRI BILATULA",
+        "FAHRI AFIF ABDUL GANI", "MOH ALFARIZI BOBIHOE", "MOH. NAZRIL PUTRA PONAMON",
+        "MUHAMMAD ZIAD PULUKADANG", "SATRIA HONLISA", "SHABRINA FATHIN TADUGA",
+        "SRI FATMAWATY J. KARIM", "SYAFITRI TIARA SHALSABILA", "SYILFIA SYAIFUL BUHUNGO",
+        "TAHIR LAIYA"
+      ],
+      XG: [
+        "ALIEF AKBAR ABDULLAH", "ASIFA PUTRI PRATIWI", "LUTHFI Y. LATIF",
+        "MOH ADRIANSYAH GAIB", "MOHAMAD ALIF BABAY", "MOHAMAD RIZQY ALQYFAHRI LAHAY",
+        "MUTMAINNAH PULUBUHU", "NADIRA HAURA PUTRI MAMU", "NAISYILLA RAMADHANI MAYANG",
+        "NAZIFA PUTRI POU", "NUR SAKINAH LAMATENGGO", "NUR SIFA TAYABU",
+        "NURIN NAZWA AKULE", "RAHMAWATI HUWANI", "REYHANA DWI PUTRI HARIYANTO",
+        "REZKYAH SONOSENTTIKO", "SUCI NUR KHALIFAH HASAN", "ZAHRA KHUMAIRA DJAFAR"
+      ]
+    };
+
+    /* ==========================================================================
+       2. BANK SOAL HOTS SEJARAH SEMESTER GANJIL 2026/2027 (25 NOMOR LENGKAP)
+          - No. 1–9   : Pilihan Ganda (Skor 4)
+          - No. 10–13 : Pilihan Ganda Kompleks (Skor 4/2/1/0)
+          - No. 14–17 : Benar / Salah (Skor 4/2/1/0)
+          - No. 18–21 : Menjodohkan (1 poin per pasangan benar, maks 4)
+          - No. 22–25 : Isian Singkat (2 poin per sub-jawaban benar, maks 4)
+       ========================================================================== */
+    const QUESTION_BANK = [
+      // ================= A. PILIHAN GANDA (NO. 1 - 9) =================
+      {
+        id: 1,
+        topic: "Pengantar Ilmu Sejarah",
+        level: "C4",
+        type: "mcq",
+        question: "Perang Diponegoro (1825–1830) adalah peristiwa nyata yang melibatkan banyak pihak. Dalam masa pengasingan di Manado, Pangeran Diponegoro menuliskan pengalamannya dalam <em>Babad Diponegoro</em>. Kini sejarawan meneliti babad itu bersama arsip kolonial: mereka memeriksa keasliannya, membandingkan isinya, menafsirkan hubungan antarperistiwa, lalu menuliskan hasilnya. Seorang novelis juga mengangkat kisah itu menjadi novel dengan gaya bahasa yang memikat pembaca.<br><br>Pernyataan yang menunjukkan makna <strong>sejarah sebagai ilmu</strong> adalah...",
+        options: [
+          "Perang Diponegoro berlangsung pada 1825–1830",
+          "Sejarawan memeriksa keaslian babad dan arsip, membandingkan isinya, lalu menulis hasil penelitiannya",
+          "Diponegoro menuliskan pengalamannya dalam Babad Diponegoro",
+          "Novelis mengangkat kisah itu dengan bahasa yang memikat"
+        ],
+        answer: 1,
+        rationale: "Sejarah sebagai ilmu memakai metode penelitian sistematis: pengumpulan sumber, kritik (memeriksa keaslian dan membandingkan isi), penafsiran, dan penulisan. Pilihan A menunjukkan sejarah sebagai peristiwa, C sebagai kisah, dan D sebagai seni."
+      },
+      {
+        id: 2,
+        topic: "Pengantar Ilmu Sejarah",
+        level: "C4",
+        type: "mcq",
+        question: "Di banyak desa pesisir, nelayan masih memakai perahu bercadik. Dahulu perahu digerakkan layar dan dayung. Kini sebagian besar menambahkan mesin tempel agar lebih cepat dan dapat menjangkau laut lebih jauh. Namun bentuk lambung ramping dengan cadik di sisinya tetap dipertahankan karena membantu menjaga keseimbangan saat gelombang.<br><br>Kesimpulan yang tepat tentang <strong>perubahan dan keberlanjutan</strong> pada perahu tersebut adalah...",
+        options: [
+          "Bentuk bercadik berubah, sedangkan sumber tenaga bertahan",
+          "Seluruh unsur perahu berubah total",
+          "Seluruh unsur perahu bertahan tanpa perubahan",
+          "Sumber tenaga berubah dari layar dan dayung ke mesin (perubahan), sedangkan bentuk bercadik bertahan (keberlanjutan)"
+        ],
+        answer: 3,
+        rationale: "Penambahan mesin tempel menggantikan layar/dayung merupakan wujud <strong>perubahan</strong> teknologi, sedangkan bentuk lambung bercadik yang tetap dipertahankan karena fungsinya merupakan wujud <strong>keberlanjutan</strong>."
+      },
+      {
+        id: 3,
+        topic: "Pengantar Ilmu Sejarah",
+        level: "C4",
+        type: "mcq",
+        question: "Guru membagi dua tugas tentang Kerajaan Majapahit. <strong>Tugas 1:</strong> menguraikan perkembangan Majapahit sejak berdiri pada 1293, masa kejayaan, hingga kemundurannya menurut urutan waktu. <strong>Tugas 2:</strong> menguraikan kehidupan politik, ekonomi, sosial, dan budaya Majapahit pada masa pemerintahan Hayam Wuruk dengan melihat keterkaitan antaraspek pada masa itu.<br><br>Tugas 1 dan Tugas 2 berturut-turut memakai pendekatan...",
+        options: [
+          "diakronis dan sinkronis",
+          "sinkronis dan diakronis",
+          "diakronis dan diakronis",
+          "sinkronis dan sinkronis"
+        ],
+        answer: 0,
+        rationale: "Tugas 1 menekankan proses perkembangan menurut urutan waktu dari 1293 hingga kemunduran (<strong>diakronis</strong>). Tugas 2 membedah struktur dan keterkaitan berbagai aspek kehidupan pada satu masa pemerintahan (<strong>sinkronis</strong>)."
+      },
+      {
+        id: 4,
+        topic: "Penelitian Sejarah",
+        level: "C4",
+        type: "mcq",
+        question: "Tim siswa meneliti sejarah berdirinya madrasah mereka. Mereka mewawancarai pendiri dan mengumpulkan foto serta dokumen lama. Ketika pendiri menyebut madrasah dibuka pada tahun tertentu, tim mencocokkannya dengan surat keputusan dan buku induk siswa. Ternyata ada perbedaan tahun, sehingga tim menelusuri sumber lain untuk memastikan keterangan mana yang lebih tepat.<br><br>Kegiatan mencocokkan keterangan pendiri dengan surat keputusan dan buku induk termasuk tahap...",
+        options: [
+          "heuristik",
+          "interpretasi",
+          "verifikasi (kritik sumber)",
+          "historiografi"
+        ],
+        answer: 2,
+        rationale: "Membandingkan dan menguji kesesuaian keterangan narasumber dengan dokumen resmi untuk memastikan akurasi fakta adalah inti tahap <strong>verifikasi (kritik sumber)</strong>."
+      },
+      {
+        id: 5,
+        topic: "Penelitian Sejarah",
+        level: "C5",
+        type: "mcq",
+        question: "Seorang peneliti ingin menulis suasana pembacaan Proklamasi 17 Agustus 1945. Ia memiliki dua sumber: <strong>(A)</strong> laporan surat kabar yang terbit beberapa hari setelah peristiwa, ditulis wartawan yang hadir; <strong>(B)</strong> buku sejarah terbitan 2018 yang ditulis dari berbagai arsip dan wawancara.<br><br>Penilaian yang paling tepat tentang kedua sumber tersebut adalah...",
+        options: [
+          "B lebih akurat karena terbit lebih baru sehingga tidak perlu dikritik",
+          "A termasuk sumber primer karena sezaman dan ditulis saksi, B termasuk sumber sekunder; keduanya tetap perlu diuji dan dibandingkan",
+          "A tidak dapat dipakai karena ditulis wartawan, bukan sejarawan",
+          "A dan B sama-sama primer karena membahas peristiwa yang sama"
+        ],
+        answer: 1,
+        rationale: "Sumber A berasal dari masa peristiwa dan ditulis saksi mata (<strong>primer</strong>), sedangkan sumber B disusun belakangan dari berbagai sumber (<strong>sekunder</strong>). Keduanya tetap wajib dikritik karena sumber primer bisa memiliki bias subjektif dan sumber sekunder berpotensi keliru menafsir."
+      },
+      {
+        id: 6,
+        topic: "Penelitian Sejarah",
+        level: "C5",
+        type: "mcq",
+        question: "Sebuah surat ditemukan dalam arsip keluarga. Surat itu bertanggal <strong>12 Maret 1925</strong> dan berkop <strong>\"REPUBLIK INDONESIA\"</strong> di bagian atas. Kertasnya tampak tua, tulisan tangannya rapi, dan isinya menyebut pembagian tanah desa.<br><br>Kesimpulan awal yang paling tepat adalah...",
+        options: [
+          "Surat pasti asli karena kertasnya tampak tua",
+          "Surat asli karena isinya tentang tanah desa",
+          "Surat tidak berguna sehingga dibuang",
+          "Keaslian surat diragukan karena kop \"Republik Indonesia\" belum ada pada 1925, sehingga perlu kritik ekstern lebih lanjut"
+        ],
+        answer: 3,
+        rationale: "Terdapat kejanggalan kronologis (<em>anakronisme</em>): entitas negara \"Republik Indonesia\" baru lahir pada 17 Agustus 1945, sehingga tidak mungkin muncul pada kop surat tahun 1925. Ini menuntut <strong>kritik ekstern</strong> lebih mendalam."
+      },
+      {
+        id: 7,
+        topic: "Zaman Prasejarah dan Zaman Batu",
+        level: "C5",
+        type: "mcq",
+        question: "Di Sangiran ditemukan fosil rahang bawah yang besar dan kuat dengan gigi besar, yang dikaitkan dengan <em>Meganthropus palaeojavanicus</em>. Hingga kini sebagian besar bagian tubuh lainnya belum ditemukan, sehingga bentuk tubuhnya sebagian besar masih berupa rekonstruksi dugaan.<br><br>Kesimpulan yang paling beralasan berdasarkan teks tersebut adalah...",
+        options: [
+          "Rahang kuat menunjukkan kemungkinan makanan keras, tetapi bentuk seluruh tubuhnya belum dapat dipastikan karena bukti terbatas",
+          "Tubuhnya pasti berukuran raksasa karena rahangnya besar",
+          "Ia pasti sudah membuat alat batu halus",
+          "Ia sudah dipastikan menulis dengan huruf sederhana"
+        ],
+        answer: 0,
+        rationale: "Penalaran ilmiah dalam arkeologi dan sejarah harus selaras dengan batas bukti empiris yang ditemukan. Fosil rahang bawah memberi petunjuk tentang pola konsumsi makanan keras, tetapi rekonstruksi tubuh utuh masih bersifat dugaan."
+      },
+      {
+        id: 8,
+        topic: "Zaman Prasejarah dan Zaman Batu",
+        level: "C4",
+        type: "mcq",
+        question: "Seorang arkeolog mencatat empat kelompok temuan:<br>• <strong>Kelompok P:</strong> gerabah, kapak persegi, dan sisa kegiatan bercocok tanam di perkampungan.<br>• <strong>Kelompok Q:</strong> alat batu kasar tanpa tangkai di tepi sungai, tanpa gerabah.<br>• <strong>Kelompok R:</strong> tugu dan meja batu besar yang diduga untuk pemujaan arwah leluhur.<br>• <strong>Kelompok S:</strong> tumpukan kulit kerang di pantai dan alat serpih di ceruk karang.<br><br>Urutan kelompok temuan dari periode yang paling awal adalah...",
+        options: [
+          "P - Q - R - S",
+          "Q - P - S - R",
+          "Q - S - P - R",
+          "S - Q - P - R"
+        ],
+        answer: 2,
+        rationale: "Urutan periodisasi kebudayaan batu dari tertua ke termuda: <strong>Q</strong> (Paleolitikum: alat batu kasar), <strong>S</strong> (Mesolitikum: <em>kjokkenmoddinger</em> & <em>abris sous roche</em>), <strong>P</strong> (Neolitikum: kapak persegi, gerabah, bercocok tanam), dan <strong>R</strong> (Megalitikum: tugu/menhir & meja batu/dolmen)."
+      },
+      {
+        id: 9,
+        topic: "Zaman Prasejarah dan Zaman Batu",
+        level: "C4",
+        type: "mcq",
+        question: "Di sebuah ceruk karang pantai ditemukan alat serpih dari batu dan tulang, tumpukan kulit kerang, tulang hewan buruan, serta lukisan cap tangan pada dinding. Tidak ditemukan gerabah halus maupun sisa tanaman budi daya.<br><br>Tafsiran yang paling tepat tentang penghuni ceruk tersebut adalah...",
+        options: [
+          "Mereka petani menetap pada masa Neolitikum",
+          "Mereka hidup semi-menetap dengan berburu dan memanfaatkan sumber daya laut pada masa Mesolitikum",
+          "Mereka pembuat nekara perunggu pada Zaman Logam",
+          "Mereka manusia yang sudah menulis prasasti"
+        ],
+        answer: 1,
+        rationale: "Hunian ceruk karang (<em>abris sous roche</em>), tumpukan kulit kerang, alat serpih, dan lukisan dinding gua merupakan ciri khas kehidupan semi-menetap (<em>semi-sedenter</em>) masyarakat masa <strong>Mesolitikum</strong>."
+      },
+
+      // ================= B. PILIHAN GANDA KOMPLEKS (NO. 10 - 13) =================
+      {
+        id: 10,
+        topic: "Pengantar Ilmu Sejarah",
+        level: "C4",
+        type: "mcq-complex",
+        question: "Setelah mempelajari kisah perjuangan tokoh daerah melalui film dokumenter dan komik sejarah, empat siswa memberi tanggapan. Siswa pertama mengatakan ia belajar mengambil pelajaran dari keputusan masa lalu. Siswa kedua terdorong meneladani keteguhan sang tokoh. Siswa ketiga merasa sejarah hanya berisi tanggal yang harus dihafal. Siswa keempat merasa terhibur karena komiknya menarik sambil menambah pengetahuan.<br><br>Pilihlah <strong>semua pernyataan</strong> yang sesuai dengan fungsi sejarah (jawaban lebih dari satu):",
+        options: [
+          "Belajar sejarah membantu mengambil pelajaran dari keputusan masa lalu (edukatif)",
+          "Kisah keteguhan tokoh dapat memotivasi dan menginspirasi",
+          "Sejarah hanya berguna untuk menghafal tanggal",
+          "Film dan komik sejarah dapat menghibur sekaligus memberi pengetahuan (rekreatif)",
+          "Sejarah tidak memiliki hubungan dengan kehidupan masa kini"
+        ],
+        answers: [0, 1, 3],
+        rationale: "Pernyataan <strong>A, B, dan D</strong> tepat karena mencerminkan fungsi edukatif (mengambil pelajaran), inspiratif (keteladanan tokoh), dan rekreatif (hiburan edukatif). Pernyataan C dan E keliru karena sejarah bukan sekadar hafalan tanggal dan sangat relevan dengan masa kini."
+      },
+      {
+        id: 11,
+        topic: "Penelitian Sejarah",
+        level: "C4",
+        type: "mcq-complex",
+        question: "Sebuah tim sejarah lokal mengumpulkan bahan untuk meneliti peristiwa Proklamasi 17 Agustus 1945. Mereka memperoleh naskah proklamasi tulisan tangan, foto dokumentasi pembacaan proklamasi pada 1945, buku pelajaran sejarah terbitan 2022, rekaman wawancara dengan saksi mata yang hadir langsung, dan film dokudrama produksi 2010.<br><br>Pilihlah <strong>semua bahan</strong> yang termasuk <strong>sumber primer</strong> (jawaban lebih dari satu):",
+        options: [
+          "Naskah proklamasi tulisan tangan",
+          "Foto dokumentasi pembacaan proklamasi pada 1945",
+          "Buku pelajaran sejarah terbitan 2022",
+          "Wawancara dengan saksi mata yang hadir langsung",
+          "Film dokudrama produksi 2010"
+        ],
+        answers: [0, 1, 3],
+        rationale: "<strong>A, B, dan D</strong> adalah sumber primer karena berasal langsung dari pelaku/saksi mata maupun dibuat pada saat peristiwa berlangsung (1945). Buku pelajaran (C) dan film dokudrama (E) merupakan karya rekonstruksi belakangan (sumber sekunder)."
+      },
+      {
+        id: 12,
+        topic: "Penelitian Sejarah",
+        level: "C5",
+        type: "mcq-complex",
+        question: "Dua laporan tentang sebuah pertempuran bertentangan. Laporan 1 ditulis seorang pejabat yang tidak berada di lokasi dan berkepentingan menutupi kekalahan. Laporan 2 ditulis seorang saksi mata yang tidak berkepentingan dan isinya sejalan dengan catatan pihak lain. Tim peneliti ingin menilai laporan mana yang lebih kredibel.<br><br>Pilihlah <strong>semua hal</strong> yang perlu dipertimbangkan dalam <strong>kritik intern</strong> (jawaban lebih dari satu):",
+        options: [
+          "Apakah penulis hadir langsung sebagai saksi",
+          "Apakah penulis memiliki kepentingan atau motif tertentu",
+          "Apakah isi laporan sejalan dengan sumber lain",
+          "Jenis tinta dan kertas yang dipakai",
+          "Warna sampul arsip"
+        ],
+        answers: [0, 1, 2],
+        rationale: "<strong>Kritik intern</strong> menguji kredibilitas isi sumber melalui kedekatan saksi dengan peristiwa (A), objektivitas/motif penulis (B), serta koroborasi atau kecocokan dengan sumber lain (C). Jenis tinta dan kertas (D) masuk ranah kritik ekstern."
+      },
+      {
+        id: 13,
+        topic: "Zaman Prasejarah dan Zaman Batu",
+        level: "C4",
+        type: "mcq-complex",
+        question: "Dalam ekskavasi di sebuah dataran dekat sungai, arkeolog menemukan kapak persegi yang telah diasah, pecahan gerabah, sisa lubang tiang rumah, dan bekas ladang. Di lapisan yang lebih tua di lokasi lain ditemukan kapak perimbas dan tumpukan kulit kerang.<br><br>Pilihlah <strong>semua temuan</strong> yang menunjukkan <strong>kebudayaan Neolitikum</strong> (jawaban lebih dari satu):",
+        options: [
+          "Kapak persegi yang telah diasah",
+          "Pecahan gerabah",
+          "Sisa lubang tiang rumah dan bekas ladang yang menunjukkan hidup menetap dan bercocok tanam",
+          "Kapak perimbas",
+          "Tumpukan kulit kerang (kjokkenmoddinger)"
+        ],
+        answers: [0, 1, 2],
+        rationale: "Temuan <strong>A, B, dan C</strong> merupakan penanda utama revolusi Neolitikum (perkakas batu halus, teknologi gerabah, hunian menetap, dan bercocok tanam). Kapak perimbas (D) milik Paleolitikum, sedangkan <em>kjokkenmoddinger</em> (E) milik Mesolitikum."
+      },
+
+      // ================= C. BENAR / SALAH (NO. 14 - 17) =================
+      {
+        id: 14,
+        topic: "Pengantar Ilmu Sejarah",
+        level: "C4",
+        type: "true-false",
+        question: "Dalam diskusi kelas, empat siswa mengajukan pendapat tentang konsep dasar sejarah. Tentukan <strong>Benar (B)</strong> atau <strong>Salah (S)</strong> setiap pendapat berikut berdasarkan konsep manusia, ruang, waktu, serta perubahan dan keberlanjutan:",
+        statements: [
+          "1. Peristiwa sejarah dapat dipahami tanpa memperhatikan ruang dan waktunya.",
+          "2. Peristiwa sejarah selalu berkaitan dengan kegiatan manusia.",
+          "3. Perubahan dan keberlanjutan dapat terjadi bersamaan dalam satu masyarakat.",
+          "4. Sejarah ditulis berdasarkan pendapat pribadi penulis tanpa memerlukan bukti."
+        ],
+        answers: ["S", "B", "B", "S"],
+        rationale: "(1) <strong>Salah:</strong> sejarah selalu terikat ruang dan waktu. (2) <strong>Benar:</strong> manusia adalah subjek/pelaku sejarah. (3) <strong>Benar:</strong> unsur tertentu dapat berubah sementara tradisi lain bertahan bersamaan. (4) <strong>Salah:</strong> sejarah sebagai ilmu wajib bertumpu pada bukti empiris."
+      },
+      {
+        id: 15,
+        topic: "Penelitian Sejarah",
+        level: "C4",
+        type: "true-false",
+        question: "Sebuah kelompok siswa menulis laporan penelitian sejarah sekolah. Pada bagian metode mereka menjelaskan empat tahap penelitian. Tentukan <strong>Benar (B)</strong> atau <strong>Salah (S)</strong> setiap penjelasan berikut:",
+        statements: [
+          "1. Heuristik adalah tahap mengumpulkan sumber sejarah.",
+          "2. Kritik ekstern adalah menilai kredibilitas isi sumber.",
+          "3. Interpretasi mencakup menguraikan fakta (analisis) dan menyatukannya (sintesis).",
+          "4. Historiografi adalah tahap menuliskan hasil penelitian secara sistematis dan kronologis."
+        ],
+        answers: ["B", "S", "B", "B"],
+        rationale: "(1) <strong>Benar.</strong> (2) <strong>Salah:</strong> kritik ekstern menilai keaslian fisik luar sumber, sedangkan kredibilitas isi dinilai melalui kritik intern. (3) <strong>Benar.</strong> (4) <strong>Benar.</strong>"
+      },
+      {
+        id: 16,
+        topic: "Zaman Prasejarah dan Zaman Batu",
+        level: "C4",
+        type: "true-false",
+        question: "Di sebuah situs ditemukan tugu batu yang berdiri tegak, meja batu besar, dan bangunan berundak yang menghadap ke gunung. Tentukan <strong>Benar (B)</strong> atau <strong>Salah (S)</strong> setiap pernyataan berikut tentang Megalitikum:",
+        statements: [
+          "1. Menhir adalah batu tegak yang didirikan untuk pemujaan arwah leluhur.",
+          "2. Sarkofagus berfungsi sebagai alat pertanian.",
+          "3. Punden berundak adalah bangunan berundak tempat pemujaan.",
+          "4. Pendukung megalitik belum mengenal kepercayaan apa pun."
+        ],
+        answers: ["B", "S", "B", "S"],
+        rationale: "(1) <strong>Benar.</strong> (2) <strong>Salah:</strong> sarkofagus adalah peti kubur batu berbentuk lesung bertutup, bukan alat pertanian. (3) <strong>Benar.</strong> (4) <strong>Salah:</strong> tradisi megalitik berakar kuat pada kepercayaan animisme dan dinamisme."
+      },
+      {
+        id: 17,
+        topic: "Zaman Prasejarah dan Zaman Batu",
+        level: "C4",
+        type: "true-false",
+        question: "Dalam presentasi, seorang siswa menyampaikan empat pernyataan tentang prasejarah. Tentukan <strong>Benar (B)</strong> atau <strong>Salah (S)</strong> setiap pernyataan berikut:",
+        statements: [
+          "1. Prasejarah dimulai ketika manusia mulai mengenal tulisan.",
+          "2. Fosil adalah sisa makhluk hidup masa lampau yang telah membatu.",
+          "3. Kapak persegi merupakan ciri utama masa Paleolitikum.",
+          "4. Zaman logam di Indonesia ditandai pemakaian perunggu dan besi."
+        ],
+        answers: ["S", "B", "S", "B"],
+        rationale: "(1) <strong>Salah:</strong> prasejarah (praaksara) justru berakhir ketika manusia mengenal tulisan. (2) <strong>Benar.</strong> (3) <strong>Salah:</strong> kapak persegi adalah ciri masa Neolitikum. (4) <strong>Benar:</strong> ditandai artefak perunggu (nekara, kapak corong) dan perkakas besi."
+      },
+
+      // ================= D. MENJODOHKAN (NO. 18 - 21) =================
+      {
+        id: 18,
+        topic: "Pengantar Ilmu Sejarah",
+        level: "C4",
+        type: "matching",
+        question: "Dalam proyek sejarah lokal, siswa mencatat banyak gejala di lingkungan mereka. Jodohkan <strong>konsep sejarah (1–4)</strong> dengan <strong>contoh kasus yang sesuai (a–e)</strong>. Satu pilihan tidak dipakai:",
+        leftItems: [
+          "1. Perubahan",
+          "2. Keberlanjutan",
+          "3. Keberulangan",
+          "4. Diakronis"
+        ],
+        rightOptions: [
+          { key: "a", text: "a. Tradisi gotong royong yang tetap dilakukan sejak masa lalu" },
+          { key: "b", text: "b. Alat tukar berubah dari barter menjadi uang digital" },
+          { key: "c", text: "c. Persaingan memperebutkan sumber daya yang muncul kembali dengan pola serupa" },
+          { key: "d", text: "d. Uraian peristiwa menurut urutan waktu dari awal hingga akhir" },
+          { key: "e", text: "e. Gambaran satu masyarakat pada satu waktu tertentu dari berbagai aspek" }
+        ],
+        answers: ["b", "a", "c", "d"],
+        rationale: "Kunci: <strong>1-b</strong> (perubahan alat tukar), <strong>2-a</strong> (tradisi tetap bertahan), <strong>3-c</strong> (pola peristiwa berulang), dan <strong>4-d</strong> (urutan waktu kronologis). Pilihan (e) adalah ciri pendekatan sinkronis."
+      },
+      {
+        id: 19,
+        topic: "Penelitian Sejarah",
+        level: "C4",
+        type: "matching",
+        question: "Tim siswa meneliti sejarah masuknya listrik di desa mereka. Jodohkan <strong>tahap penelitian (1–4)</strong> dengan <strong>kegiatan yang sesuai (a–e)</strong>. Satu pilihan tidak dipakai:",
+        leftItems: [
+          "1. Heuristik",
+          "2. Verifikasi",
+          "3. Interpretasi",
+          "4. Historiografi"
+        ],
+        rightOptions: [
+          { key: "a", text: "a. Menyusun laporan dengan kutipan dan daftar pustaka" },
+          { key: "b", text: "b. Menghubungkan fakta menjadi penjelasan sebab-akibat" },
+          { key: "c", text: "c. Mencari arsip, foto lama, dan narasumber" },
+          { key: "d", text: "d. Memeriksa keaslian dan kredibilitas sumber" },
+          { key: "e", text: "e. Menentukan tema penelitian sebelum mencari sumber" }
+        ],
+        answers: ["c", "d", "b", "a"],
+        rationale: "Kunci: <strong>1-c</strong> (heuristik = mengumpulkan sumber), <strong>2-d</strong> (verifikasi = menguji sumber), <strong>3-b</strong> (interpretasi = merangkai sebab-akibat), dan <strong>4-a</strong> (historiografi = menulis laporan ilmiah). Pilihan (e) adalah tahap pemilihan topik."
+      },
+      {
+        id: 20,
+        topic: "Penelitian Sejarah",
+        level: "C4",
+        type: "matching",
+        question: "Sebuah museum daerah menyimpan berbagai bahan penelitian. Jodohkan <strong>bahan sejarah (1–4)</strong> dengan <strong>jenis sumbernya (a–e)</strong>. Satu pilihan tidak dipakai:",
+        leftItems: [
+          "1. Prasasti berhuruf Pallawa abad ke-7",
+          "2. Rekaman wawancara dengan veteran pejuang",
+          "3. Alat batu hasil ekskavasi",
+          "4. Buku sejarah karya sejarawan terbitan 2020"
+        ],
+        rightOptions: [
+          { key: "a", text: "a. Sumber tertulis" },
+          { key: "b", text: "b. Sumber lisan" },
+          { key: "c", text: "c. Sumber benda" },
+          { key: "d", text: "d. Sumber sekunder" },
+          { key: "e", text: "e. Sumber visual (foto)" }
+        ],
+        answers: ["a", "b", "c", "d"],
+        rationale: "Kunci: <strong>1-a</strong> (prasasti = sumber tertulis), <strong>2-b</strong> (wawancara pelaku = sumber lisan), <strong>3-c</strong> (alat batu = sumber benda/artefak), dan <strong>4-d</strong> (buku sejarawan masa kini = sumber sekunder)."
+      },
+      {
+        id: 21,
+        topic: "Zaman Prasejarah dan Zaman Batu",
+        level: "C4",
+        type: "matching",
+        question: "Sebuah pameran arkeologi menampilkan empat benda temuan dari berbagai situs. Jodohkan <strong>temuan arkeologis (1–4)</strong> dengan <strong>periodenya (a–e)</strong>. Satu pilihan tidak dipakai:",
+        leftItems: [
+          "1. Kapak perimbas dari Pacitan",
+          "2. Tumpukan kulit kerang dari pantai timur Sumatra",
+          "3. Kapak persegi dan gerabah",
+          "4. Waruga dari Minahasa"
+        ],
+        rightOptions: [
+          { key: "a", text: "a. Paleolitikum" },
+          { key: "b", text: "b. Mesolitikum" },
+          { key: "c", text: "c. Neolitikum" },
+          { key: "d", text: "d. Megalitikum" },
+          { key: "e", text: "e. Zaman Logam" }
+        ],
+        answers: ["a", "b", "c", "d"],
+        rationale: "Kunci: <strong>1-a</strong> (kapak perimbas = Paleolitikum), <strong>2-b</strong> (<em>kjokkenmoddinger</em> = Mesolitikum), <strong>3-c</strong> (kapak persegi & gerabah = Neolitikum), dan <strong>4-d</strong> (kubur batu waruga = Megalitikum)."
+      },
+
+      // ================= E. ISIAN SINGKAT (NO. 22 - 25) =================
+      {
+        id: 22,
+        topic: "Pengantar Ilmu Sejarah",
+        level: "C4",
+        type: "short-answer",
+        question: "Dua tim menulis tentang jalur rempah. <strong>Tim A</strong> menulis perkembangan perdagangan rempah di Nusantara dari abad ke-7 hingga abad ke-17 menurut urutan waktu. <strong>Tim B</strong> menulis kondisi sosial, ekonomi, dan budaya masyarakat Maluku pada abad ke-16 dengan melihat hubungan antaraspek.<br><br>Tulislah pendekatan yang dipakai Tim A dan Tim B:",
+        fields: [
+          {
+            label: "Pendekatan Tim A (memanjang dalam waktu):",
+            placeholder: "Ketik nama pendekatan (contoh: diakronis)...",
+            keywords: ["diakronis", "diakronik", "kronologis"]
+          },
+          {
+            label: "Pendekatan Tim B (melebar dalam ruang pada satu masa):",
+            placeholder: "Ketik nama pendekatan (contoh: sinkronis)...",
+            keywords: ["sinkronis", "sinkronik"]
+          }
+        ],
+        rationale: "<strong>Kunci Jawaban:</strong> Tim A menggunakan pendekatan <strong>diakronis</strong> (menekankan proses menurut urutan waktu abad ke-7 s.d. ke-17), sedangkan Tim B menggunakan pendekatan <strong>sinkronis</strong> (membedah keterkaitan struktur sosial, ekonomi, dan budaya pada abad ke-16)."
+      },
+      {
+        id: 23,
+        topic: "Pengantar Ilmu Sejarah",
+        level: "C4",
+        type: "short-answer",
+        question: "Setelah kunjungan ke museum, dua siswa memberi kesan. <strong>Siswa A</strong> berkata, <em>\"Aku terdorong meneladani keteguhan tokoh itu dan ingin berprestasi untuk daerahku.\"</em> <strong>Siswa B</strong> berkata, <em>\"Aku senang membaca komik sejarahnya karena ceritanya menarik dan membuatku betah belajar.\"</em><br><br>Tulislah fungsi sejarah yang tampak pada pernyataan Siswa A dan Siswa B:",
+        fields: [
+          {
+            label: "Fungsi sejarah pada pernyataan Siswa A:",
+            placeholder: "Ketik fungsi sejarah (contoh: inspiratif)...",
+            keywords: ["inspiratif", "inspirasi"]
+          },
+          {
+            label: "Fungsi sejarah pada pernyataan Siswa B:",
+            placeholder: "Ketik fungsi sejarah (contoh: rekreatif)...",
+            keywords: ["rekreatif", "rekreasi", "hiburan"]
+          }
+        ],
+        rationale: "<strong>Kunci Jawaban:</strong> Pernyataan Siswa A menunjukkan fungsi <strong>inspiratif</strong> (terdorong meneladani keteguhan tokoh), sedangkan Siswa B menunjukkan fungsi <strong>rekreatif</strong> (merasa senang dan terhibur saat membaca komik sejarah)."
+      },
+      {
+        id: 24,
+        topic: "Penelitian Sejarah",
+        level: "C5",
+        type: "short-answer",
+        question: "Seorang peneliti menemukan dua catatan tentang peristiwa pelabuhan yang sama. <strong>Catatan A</strong> ditulis oleh pejabat yang tidak hadir di lokasi dan berkepentingan menutupi kerugian. <strong>Catatan B</strong> ditulis oleh pelaut yang hadir langsung, tidak berkepentingan, dan isinya sejalan dengan arsip dagang dari pihak lain.<br><br>Tulislah catatan yang lebih kredibel (A atau B) beserta satu alasan utama:",
+        fields: [
+          {
+            label: "Catatan yang lebih kredibel (tulis A atau B):",
+            placeholder: "Ketik: Catatan B atau B",
+            keywords: ["b"]
+          },
+          {
+            label: "Alasan kredibilitas berdasarkan kritik intern:",
+            placeholder: "Jelaskan singkat mengapa catatan tersebut lebih kredibel...",
+            keywords: ["saksi", "hadir", "langsung", "tidak berkepentingan", "sejalan", "arsip", "sumber lain", "objektif"]
+          }
+        ],
+        rationale: "<strong>Kunci Jawaban:</strong> <strong>Catatan B</strong> lebih kredibel karena ditulis oleh saksi mata yang hadir langsung di lokasi, tidak memiliki kepentingan untuk memanipulasi fakta, serta isinya sejalan dengan arsip/sumber lain (lolos uji kritik intern)."
+      },
+      {
+        id: 25,
+        topic: "Zaman Prasejarah dan Zaman Batu",
+        level: "C5",
+        type: "short-answer",
+        hasCarbonSim: true,
+        question: "Sampel arang dari lapisan sebuah ceruk karang masih mengandung <strong>25% C-14</strong> dari kadar semula. Waktu paruh C-14 sekitar <strong>5.730 tahun</strong> (perhitungan disederhanakan tanpa kalibrasi).<br><br>(a) Hitunglah perkiraan umur sampel. (b) Tulislah masa peralihan kebudayaan/geologis yang paling sesuai dengan umur tersebut:",
+        fields: [
+          {
+            label: "(a) Perkiraan umur sampel (dalam tahun):",
+            placeholder: "Contoh: 11460 tahun",
+            keywords: ["11460", "11.460"]
+          },
+          {
+            label: "(b) Masa peralihan yang paling sesuai:",
+            placeholder: "Contoh: Peralihan akhir Pleistosen ke awal Holosen / menjelang Mesolitikum",
+            keywords: ["mesolitikum", "holosen", "pleistosen", "peralihan", "batu tengah"]
+          }
+        ],
+        rationale: "<strong>Kunci Jawaban:</strong> Kadar C-14 tersisa 25% berarti telah melewati <strong>2 kali waktu paruh</strong> (100% &rarr; 50% &rarr; 25%), sehingga umur sampel = 2 &times; 5.730 = <strong>11.460 tahun</strong>. Umur ini berada pada masa <strong>peralihan akhir Pleistosen ke awal Holosen (menjelang masa Mesolitikum / akhir Paleolitikum)</strong>."
+      }
+    ];
+
+    /* ==========================================================================
+       3. STATE APLIKASI & PENYIMPANAN LOKAL (OFFLINE)
+       ========================================================================== */
+    let appState = {
+      currentStudent: null,
+      currentClass: null,
+      currentQuestionIndex: 0,
+      userAnswers: {}, // { qId: { score: 0..4, summary: string, raw: any } }
+      draftState: {},  // menyimpan pilihan sementara sebelum dikunci untuk PG Kompleks, B/S, Menjodohkan
+      timerSeconds: 0,
+      timerInterval: null
+    };
+
+    const STORAGE_KEY = "MAN1_GORONTALO_SEJARAH_HOTS_2026_V2";
+
+    function loadRecords() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveRecord(recordObj) {
+      try {
+        const records = loadRecords();
+        const key = `${recordObj.kelas}__${recordObj.nama}`;
+        records[key] = recordObj;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+      } catch (e) {
+        showToast("Catatan: Penyimpanan lokal browser terbatas, silakan unduh rekap CSV setelah selesai.");
+      }
+    }
+
+    /* ==========================================================================
+       4. UTILITAS NAVIGASI LAYAR & NOTIFIKASI TOAST
+       ========================================================================== */
+    function switchScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+      document.getElementById(screenId).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (screenId === 'screen-teacher') {
+        renderTeacherTable();
+      }
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast-box');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    /* ==========================================================================
+       5. INTERAKSI HALAMAN AWAL (PILIH KELAS, NAMA, & KISI-KISI SOAL)
+       ========================================================================== */
+    function renderKisiKisiTable() {
+      const filterEl = document.getElementById('filter-kisi-materi');
+      const tbody = document.getElementById('kisi-kisi-table-body');
+      if (!filterEl || !tbody) return;
+
+      const selectedMateri = filterEl.value;
+      tbody.innerHTML = '';
+
+      const filtered = selectedMateri === 'ALL'
+        ? KISI_KISI_DATA
+        : KISI_KISI_DATA.filter(item => item.materi === selectedMateri);
+
+      filtered.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${item.no}</strong></td>
+          <td><span class="badge" style="font-size: 0.75rem;">${item.materi}</span></td>
+          <td>${item.indikator}</td>
+          <td>${item.bentuk}</td>
+          <td><strong style="color: var(--gold-bright);">${item.level}</strong></td>
+          <td>${item.skor}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderKisiKisiTable();
+    });
+
+    function populateStudents() {
+      const kelas = document.getElementById('select-kelas').value;
+      const namaSelect = document.getElementById('select-nama');
+      namaSelect.innerHTML = '';
+
+      if (!kelas || !STUDENT_DATABASE[kelas]) {
+        namaSelect.disabled = true;
+        namaSelect.innerHTML = '<option value="">-- Pilih Kelas Terlebih Dahulu --</option>';
+        return;
+      }
+
+      namaSelect.disabled = false;
+      const defaultOpt = document.createElement('option');
+      defaultOpt.value = '';
+      defaultOpt.textContent = `-- Pilih Nama Siswa (${STUDENT_DATABASE[kelas].length} Peserta) --`;
+      namaSelect.appendChild(defaultOpt);
+
+      STUDENT_DATABASE[kelas].forEach(nama => {
+        const opt = document.createElement('option');
+        opt.value = nama;
+        opt.textContent = nama;
+        namaSelect.appendChild(opt);
+      });
+    }
+
+    /* ==========================================================================
+       6. LOGIKA PELAKSANAAN ASESMEN
+       ========================================================================== */
+    function startExam() {
+      const kelas = document.getElementById('select-kelas').value;
+      const nama = document.getElementById('select-nama').value;
+
+      if (!kelas || !nama) {
+        showToast("Silakan pilih Kelas dan Nama Lengkap Anda terlebih dahulu.");
+        return;
+      }
+
+      appState.currentClass = kelas;
+      appState.currentStudent = nama;
+      appState.currentQuestionIndex = 0;
+      appState.userAnswers = {};
+      appState.draftState = {};
+      appState.timerSeconds = 0;
+
+      // Inisialisasi draft untuk soal interaktif multi-bagian
+      QUESTION_BANK.forEach(q => {
+        if (q.type === 'mcq-complex') {
+          appState.draftState[q.id] = [];
+        } else if (q.type === 'true-false') {
+          appState.draftState[q.id] = new Array(q.statements.length).fill(null);
+        } else if (q.type === 'matching') {
+          appState.draftState[q.id] = new Array(q.leftItems.length).fill('');
+        }
+      });
+
+      document.getElementById('display-student-name').textContent = nama;
+      document.getElementById('display-student-class').textContent = `Kelas ${kelas} • MAN 1 Kab. Gorontalo`;
+
+      if (appState.timerInterval) clearInterval(appState.timerInterval);
+      appState.timerInterval = setInterval(() => {
+        appState.timerSeconds++;
+        document.getElementById('elapsed-time').textContent = formatDuration(appState.timerSeconds);
+      }, 1000);
+
+      renderNavGrid();
+      renderQuestion(0);
+      updateProgress();
+      switchScreen('screen-exam');
+    }
+
+    function formatDuration(totalSec) {
+      const m = Math.floor(totalSec / 60).toString().padStart(2, '0');
+      const s = (totalSec % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    function renderNavGrid() {
+      const grid = document.getElementById('nav-grid');
+      grid.innerHTML = '';
+      QUESTION_BANK.forEach((q, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'nav-num';
+        btn.textContent = idx + 1;
+        if (idx === appState.currentQuestionIndex) btn.classList.add('active');
+
+        const ans = appState.userAnswers[q.id];
+        if (ans) {
+          if (ans.score === 4) btn.classList.add('answered-correct');
+          else if (ans.score > 0) btn.classList.add('answered-partial');
+          else btn.classList.add('answered-wrong');
+        }
+        btn.onclick = () => renderQuestion(idx);
+        grid.appendChild(btn);
+      });
+    }
+
+    function getTypeLabel(type) {
+      const map = {
+        'mcq': 'Pilihan Ganda',
+        'mcq-complex': 'Pilihan Ganda Kompleks',
+        'true-false': 'Benar / Salah',
+        'matching': 'Menjodohkan',
+        'short-answer': 'Isian Singkat'
+      };
+      return map[type] || 'Soal HOTS';
+    }
+
+    function renderQuestion(index) {
+      appState.currentQuestionIndex = index;
+      const q = QUESTION_BANK[index];
+      const existingAnswer = appState.userAnswers[q.id];
+
+      document.getElementById('q-topic-badge').textContent = `Materi: ${q.topic}`;
+      document.getElementById('q-type-badge').textContent = `${getTypeLabel(q.type)} • Level ${q.level} (Skor Maks 4)`;
+      document.getElementById('q-number-label').textContent = `Soal ${index + 1} dari ${QUESTION_BANK.length}`;
+      document.getElementById('q-text').innerHTML = q.question;
+
+      const interactiveArea = document.getElementById('q-interactive-area');
+      const optionsArea = document.getElementById('q-options');
+      interactiveArea.innerHTML = '';
+      optionsArea.innerHTML = '';
+
+      const letters = ['A', 'B', 'C', 'D', 'E'];
+
+      // 1. TIPE PILIHAN GANDA TUNGGAL (NO. 1 - 9)
+      if (q.type === 'mcq') {
+        q.options.forEach((optText, optIdx) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'option-btn';
+
+          if (existingAnswer) {
+            btn.classList.add('locked');
+            if (optIdx === q.answer) {
+              btn.classList.add('correct');
+            } else if (optIdx === existingAnswer.raw && existingAnswer.score === 0) {
+              btn.classList.add('wrong');
+            }
+          }
+
+          btn.innerHTML = `
+            <span class="option-letter">${letters[optIdx]}</span>
+            <span>${optText}</span>
+          `;
+
+          btn.onclick = () => {
+            if (!appState.userAnswers[q.id]) {
+              const score = (optIdx === q.answer) ? 4 : 0;
+              appState.userAnswers[q.id] = {
+                score: score,
+                summary: `${letters[optIdx]}(${score === 4 ? 'B' : 'S'})`,
+                raw: optIdx
+              };
+              updateProgress();
+              renderQuestion(index);
+            }
+          };
+
+          optionsArea.appendChild(btn);
+        });
+      }
+
+      // 2. TIPE PILIHAN GANDA KOMPLEKS (NO. 10 - 13)
+      else if (q.type === 'mcq-complex') {
+        const selectedArr = existingAnswer ? existingAnswer.raw : appState.draftState[q.id];
+
+        q.options.forEach((optText, optIdx) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          const isChecked = selectedArr.includes(optIdx);
+          btn.className = 'option-btn' + (isChecked ? ' checked' : '');
+
+          if (existingAnswer) {
+            btn.classList.add('locked');
+            const isKey = q.answers.includes(optIdx);
+            if (isKey) {
+              btn.classList.add('correct');
+            } else if (isChecked && !isKey) {
+              btn.classList.add('wrong');
+            }
+          }
+
+          btn.innerHTML = `
+            <span class="checkbox-mark">${isChecked ? '&#10003;' : ''}</span>
+            <span><strong>${letters[optIdx]}.</strong> ${optText}</span>
+          `;
+
+          btn.onclick = () => {
+            if (!appState.userAnswers[q.id]) {
+              const draft = appState.draftState[q.id];
+              const pos = draft.indexOf(optIdx);
+              if (pos === -1) draft.push(optIdx);
+              else draft.splice(pos, 1);
+              renderQuestion(index);
+            }
+          };
+
+          optionsArea.appendChild(btn);
+        });
+
+        if (!existingAnswer) {
+          const actionDiv = document.createElement('div');
+          actionDiv.style.cssText = 'margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;';
+          actionDiv.innerHTML = `
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Pilih lebih dari satu jawaban, lalu klik tombol kunci jawaban.</span>
+            <button type="button" class="btn btn-gold" onclick="submitComplexMCQ(${q.id})">Kunci &amp; Periksa Jawaban</button>
+          `;
+          optionsArea.appendChild(actionDiv);
+        }
+      }
+
+      // 3. TIPE BENAR / SALAH (NO. 14 - 17)
+      else if (q.type === 'true-false') {
+        const currentVals = existingAnswer ? existingAnswer.raw : appState.draftState[q.id];
+        const lab = document.createElement('div');
+        lab.className = 'interactive-lab';
+        let html = `<div class="lab-title">Tentukan Benar (B) atau Salah (S) Tiap Pernyataan</div>`;
+
+        q.statements.forEach((stmt, sIdx) => {
+          const val = currentVals[sIdx];
+          const keyVal = q.answers[sIdx];
+          let bClass = 'bs-btn';
+          let sClass = 'bs-btn';
+
+          if (!existingAnswer) {
+            if (val === 'B') bClass += ' active-b';
+            if (val === 'S') sClass += ' active-s';
+          } else {
+            if (keyVal === 'B') bClass += ' eval-right';
+            if (keyVal === 'S') sClass += ' eval-right';
+            if (val === 'B' && keyVal !== 'B') bClass += ' eval-wrong';
+            if (val === 'S' && keyVal !== 'S') sClass += ' eval-wrong';
+          }
+
+          html += `
+            <div class="bs-row">
+              <div class="bs-statement">${stmt}</div>
+              <div class="bs-toggle-group">
+                <button type="button" class="${bClass}" ${existingAnswer ? 'disabled' : ''} onclick="setTrueFalse(${q.id}, ${sIdx}, 'B')">Benar (B)</button>
+                <button type="button" class="${sClass}" ${existingAnswer ? 'disabled' : ''} onclick="setTrueFalse(${q.id}, ${sIdx}, 'S')">Salah (S)</button>
+              </div>
+            </div>
+          `;
+        });
+
+        if (!existingAnswer) {
+          html += `
+            <div style="margin-top: 1rem; text-align: right;">
+              <button type="button" class="btn btn-gold" onclick="submitTrueFalse(${q.id})">Kunci &amp; Periksa Jawaban</button>
+            </div>
+          `;
+        }
+        lab.innerHTML = html;
+        interactiveArea.appendChild(lab);
+      }
+
+      // 4. TIPE MENJODOHKAN (NO. 18 - 21)
+      else if (q.type === 'matching') {
+        const currentMatches = existingAnswer ? existingAnswer.raw : appState.draftState[q.id];
+        const lab = document.createElement('div');
+        lab.className = 'interactive-lab';
+        let html = `<div class="lab-title">Pasangkan Pernyataan Kiri dengan Pilihan Kanan</div>`;
+
+        q.leftItems.forEach((leftText, lIdx) => {
+          const chosen = currentMatches[lIdx];
+          const isRight = existingAnswer && (chosen === q.answers[lIdx]);
+          const borderStyle = existingAnswer
+            ? (isRight ? 'border-color: var(--success);' : 'border-color: var(--danger);')
+            : '';
+
+          html += `
+            <div class="match-row" style="${borderStyle}">
+              <div style="font-weight: 600; font-size: 0.94rem;">${leftText}</div>
+              <div>
+                <select class="match-select" ${existingAnswer ? 'disabled' : ''} onchange="setMatch(${q.id}, ${lIdx}, this.value)">
+                  <option value="">-- Pilih Pasangan (a - e) --</option>
+                  ${q.rightOptions.map(opt => `
+                    <option value="${opt.key}" ${chosen === opt.key ? 'selected' : ''}>${opt.text}</option>
+                  `).join('')}
+                </select>
+                ${existingAnswer && !isRight ? `<div style="font-size: 0.78rem; color: var(--success); margin-top: 0.3rem;">Kunci tepat: pilihan (${q.answers[lIdx]})</div>` : ''}
+              </div>
+            </div>
+          `;
+        });
+
+        if (!existingAnswer) {
+          html += `
+            <div style="margin-top: 1rem; text-align: right;">
+              <button type="button" class="btn btn-gold" onclick="submitMatching(${q.id})">Kunci &amp; Periksa Pasangan</button>
+            </div>
+          `;
+        }
+        lab.innerHTML = html;
+        interactiveArea.appendChild(lab);
+      }
+
+      // 5. TIPE ISIAN SINGKAT (NO. 22 - 25)
+      else if (q.type === 'short-answer') {
+        const lab = document.createElement('div');
+        lab.className = 'interactive-lab';
+        let html = `<div class="lab-title">Isian Singkat Analitis (Skor 2 Poin per Bagian)</div>`;
+
+        // Simulasi Interaktif Waktu Paruh Radiokarbon C-14 khusus Nomor 25
+        if (q.hasCarbonSim) {
+          html += `
+            <div class="carbon-sim">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <strong style="font-size: 0.85rem; color: var(--gold-bright);">Simulasi Peluruhan Radiokarbon (C-14)</strong>
+                <span id="c14-badge" class="badge">0 Waktu Paruh = 0 Tahun (100% C-14)</span>
+              </div>
+              <input type="range" class="slider-control" min="0" max="4" value="0" oninput="updateCarbonSim(this.value)">
+              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted);">
+                <span>0x (100%)</span>
+                <span>1x (50%)</span>
+                <span>2x (25%)</span>
+                <span>3x (12,5%)</span>
+                <span>4x (6,25%)</span>
+              </div>
+            </div>
+          `;
+        }
+
+        const savedVals = existingAnswer ? existingAnswer.raw : ['', ''];
+        q.fields.forEach((f, fIdx) => {
+          html += `
+            <div class="short-input-group">
+              <label for="short-field-${q.id}-${fIdx}">${f.label}</label>
+              <input type="text" id="short-field-${q.id}-${fIdx}" class="form-control"
+                placeholder="${f.placeholder}"
+                value="${savedVals[fIdx] ? savedVals[fIdx].replace(/"/g, '&quot;') : ''}"
+                ${existingAnswer ? 'disabled' : ''}>
+            </div>
+          `;
+        });
+
+        if (!existingAnswer) {
+          html += `
+            <div style="margin-top: 1rem; text-align: right;">
+              <button type="button" class="btn btn-gold" onclick="submitShortAnswer(${q.id})">Kunci &amp; Periksa Isian</button>
+            </div>
+          `;
+        }
+
+        lab.innerHTML = html;
+        interactiveArea.appendChild(lab);
+      }
+
+      // 6. TAMPILKAN UMPAN BALIK PEDAGOGIS & SKOR BUTIR SOAL
+      const feedbackBox = document.getElementById('q-feedback');
+      const feedbackTitle = document.getElementById('feedback-title');
+      const feedbackText = document.getElementById('feedback-text');
+
+      if (existingAnswer) {
+        const sc = existingAnswer.score;
+        feedbackBox.className = 'feedback-box show ' + (sc === 4 ? 'is-correct' : (sc > 0 ? '' : 'is-wrong'));
+        feedbackTitle.style.color = sc === 4 ? 'var(--success)' : (sc > 0 ? 'var(--gold-bright)' : 'var(--danger)');
+        feedbackTitle.innerHTML = sc === 4
+          ? `&#10004; Jawaban Sempurna! (Skor Butir: 4 / 4)`
+          : (sc > 0
+            ? `&#9733; Jawaban Sebagian Tepat (Skor Butir: ${sc} / 4)`
+            : `&#9888; Belum Tepat (Skor Butir: 0 / 4) — Mari Telaah Pembahasannya`);
+        feedbackText.innerHTML = q.rationale;
+      } else {
+        feedbackBox.className = 'feedback-box';
+      }
+
+      // 7. ATUR TOMBOL NAVIGASI BAWAH
+      document.getElementById('btn-prev').disabled = (index === 0);
+      const isLast = (index === QUESTION_BANK.length - 1);
+      document.getElementById('btn-next').style.display = isLast ? 'none' : 'inline-flex';
+      document.getElementById('btn-finish').style.display = isLast ? 'inline-flex' : 'none';
+
+      renderNavGrid();
+    }
+
+    function updateCarbonSim(halfLives) {
+      const n = parseInt(halfLives, 10);
+      const years = n * 5730;
+      const pct = 100 / Math.pow(2, n);
+      const badge = document.getElementById('c14-badge');
+      if (badge) {
+        badge.textContent = `${n} Waktu Paruh = ${years.toLocaleString('id-ID')} Tahun (${pct}% C-14)`;
+      }
+    }
+
+    // Handler PG Kompleks (Rubrik: 0 salah = 4, 1 salah = 2, 2 salah = 1, lainnya = 0)
+    function submitComplexMCQ(qId) {
+      const q = QUESTION_BANK.find(item => item.id === qId);
+      const selected = [...appState.draftState[qId]].sort();
+      if (selected.length === 0) {
+        showToast("Pilih minimal satu opsi sebelum mengunci jawaban.");
+        return;
+      }
+
+      let errors = 0;
+      for (let i = 0; i < q.options.length; i++) {
+        const inKey = q.answers.includes(i);
+        const inSel = selected.includes(i);
+        if (inKey !== inSel) errors++;
+      }
+
+      let score = 0;
+      if (errors === 0) score = 4;
+      else if (errors === 1) score = 2;
+      else if (errors === 2) score = 1;
+
+      const letters = ['A', 'B', 'C', 'D', 'E'];
+      const chosenLetters = selected.map(i => letters[i]).join(',');
+      appState.userAnswers[qId] = {
+        score: score,
+        summary: `${chosenLetters}(${score}p)`,
+        raw: selected
+      };
+
+      updateProgress();
+      renderQuestion(appState.currentQuestionIndex);
+    }
+
+    // Handler Benar / Salah (Rubrik: 4 benar = 4, 3 benar = 2, 2 benar = 1, <2 = 0)
+    function setTrueFalse(qId, stmtIdx, val) {
+      appState.draftState[qId][stmtIdx] = val;
+      renderQuestion(appState.currentQuestionIndex);
+    }
+
+    function submitTrueFalse(qId) {
+      const q = QUESTION_BANK.find(item => item.id === qId);
+      const vals = [...appState.draftState[qId]];
+      if (vals.includes(null)) {
+        showToast("Lengkapi pilihan Benar (B) atau Salah (S) untuk keempat pernyataan.");
+        return;
+      }
+
+      let correctCount = 0;
+      vals.forEach((v, idx) => {
+        if (v === q.answers[idx]) correctCount++;
+      });
+
+      let score = 0;
+      if (correctCount === 4) score = 4;
+      else if (correctCount === 3) score = 2;
+      else if (correctCount === 2) score = 1;
+
+      appState.userAnswers[qId] = {
+        score: score,
+        summary: `${vals.join('-')}(${score}p)`,
+        raw: vals
+      };
+
+      updateProgress();
+      renderQuestion(appState.currentQuestionIndex);
+    }
+
+    // Handler Menjodohkan (Rubrik: 1 poin per pasangan benar, maks 4)
+    function setMatch(qId, leftIdx, val) {
+      appState.draftState[qId][leftIdx] = val;
+    }
+
+    function submitMatching(qId) {
+      const q = QUESTION_BANK.find(item => item.id === qId);
+      const vals = [...appState.draftState[qId]];
+      if (vals.includes('')) {
+        showToast("Lengkapi seluruh pasangan 1 sampai 4 terlebih dahulu.");
+        return;
+      }
+
+      let score = 0;
+      vals.forEach((v, idx) => {
+        if (v === q.answers[idx]) score++;
+      });
+
+      const pairStr = vals.map((v, idx) => `${idx + 1}-${v}`).join(';');
+      appState.userAnswers[qId] = {
+        score: score,
+        summary: `${pairStr}(${score}p)`,
+        raw: vals
+      };
+
+      updateProgress();
+      renderQuestion(appState.currentQuestionIndex);
+    }
+
+    // Handler Isian Singkat (Rubrik: 2 poin per sub-jawaban tepat, maks 4)
+    function submitShortAnswer(qId) {
+      const q = QUESTION_BANK.find(item => item.id === qId);
+      const inputs = [];
+      let score = 0;
+
+      for (let i = 0; i < q.fields.length; i++) {
+        const el = document.getElementById(`short-field-${qId}-${i}`);
+        const val = el ? el.value.trim() : '';
+        if (!val) {
+          showToast("Mohon isi semua kolom jawaban singkat sebelum memeriksa.");
+          return;
+        }
+        inputs.push(val);
+
+        const lowerVal = val.toLowerCase();
+        const isMatch = q.fields[i].keywords.some(kw => {
+          if (kw === 'b') {
+            return lowerVal === 'b' || lowerVal === 'catatan b' || lowerVal.startsWith('b ') || lowerVal.startsWith('b.') || lowerVal.startsWith('b,');
+          }
+          return lowerVal.includes(kw.toLowerCase());
+        });
+
+        if (isMatch) score += 2;
+      }
+
+      appState.userAnswers[qId] = {
+        score: score,
+        summary: `Isian(${score}p)`,
+        raw: inputs
+      };
+
+      updateProgress();
+      renderQuestion(appState.currentQuestionIndex);
+    }
+
+    function navigateQuestion(delta) {
+      const nextIdx = appState.currentQuestionIndex + delta;
+      if (nextIdx >= 0 && nextIdx < QUESTION_BANK.length) {
+        renderQuestion(nextIdx);
+      }
+    }
+
+    function updateProgress() {
+      const answeredCount = Object.keys(appState.userAnswers).length;
+      const total = QUESTION_BANK.length;
+      const pct = Math.round((answeredCount / total) * 100);
+
+      document.getElementById('progress-text').textContent = `${answeredCount} / ${total} Terjawab`;
+      document.getElementById('progress-fill').style.width = `${pct}%`;
+    }
+
+    /* ==========================================================================
+       7. PENYELESAIAN UJIAN & PERHITUNGAN SKOR (TOTAL MAKSIMAL = 100)
+       ========================================================================== */
+    function openFinishModal() {
+      const answeredCount = Object.keys(appState.userAnswers).length;
+      const total = QUESTION_BANK.length;
+      const modalText = document.getElementById('modal-summary-text');
+
+      if (answeredCount < total) {
+        modalText.innerHTML = `Anda baru menyelesaikan <strong style="color: var(--gold-bright);">${answeredCount} dari ${total} soal</strong>. Soal yang belum dikunci mendapat skor 0. Tetap kumpulkan sekarang?`;
+      } else {
+        modalText.innerHTML = `Seluruh <strong style="color: var(--success);">${total} butir soal HOTS</strong> telah dikerjakan. Klik tombol di bawah untuk mengunci nilai akhir Anda.`;
+      }
+      document.getElementById('finish-modal').classList.add('show');
+    }
+
+    function closeFinishModal() {
+      document.getElementById('finish-modal').classList.remove('show');
+    }
+
+    function submitExam() {
+      closeFinishModal();
+      if (appState.timerInterval) clearInterval(appState.timerInterval);
+
+      let totalScore = 0;
+      let fullCorrectCount = 0;
+      const topicStats = {};
+      const detailCodes = [];
+
+      QUESTION_BANK.forEach((q, idx) => {
+        if (!topicStats[q.topic]) {
+          topicStats[q.topic] = { maxPoints: 0, earnedPoints: 0 };
+        }
+        topicStats[q.topic].maxPoints += 4;
+
+        const ans = appState.userAnswers[q.id];
+        const earned = ans ? ans.score : 0;
+        totalScore += earned;
+        topicStats[q.topic].earnedPoints += earned;
+
+        if (earned === 4) fullCorrectCount++;
+        detailCodes.push(`${idx + 1}:${ans ? ans.summary : '-'}`);
+      });
+
+      const totalQuestions = QUESTION_BANK.length;
+      const nonFullCount = totalQuestions - fullCorrectCount;
+      const durationStr = formatDuration(appState.timerSeconds);
+      const timestamp = new Date().toLocaleString('id-ID', {
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      });
+
+      // Simpan ke rekap lokal guru
+      saveRecord({
+        waktu: `${timestamp} (${durationStr})`,
+        nama: appState.currentStudent,
+        kelas: appState.currentClass,
+        benar: fullCorrectCount,
+        salah: nonFullCount,
+        nilai: totalScore,
+        detail: detailCodes.join(', ')
+      });
+
+      // Tampilkan di layar hasil siswa
+      document.getElementById('res-student-name').textContent = appState.currentStudent;
+      document.getElementById('res-student-meta').textContent = `Kelas ${appState.currentClass} • MAN 1 Kabupaten Gorontalo`;
+      document.getElementById('res-final-score').textContent = totalScore;
+      document.getElementById('res-correct-count').textContent = fullCorrectCount;
+      document.getElementById('res-wrong-count').textContent = nonFullCount;
+      document.getElementById('res-duration').textContent = durationStr;
+
+      let predicate = "";
+      if (totalScore >= 90) predicate = "Predikat: Mumtaz / Sangat Baik (Penalaran HOTS C4–C5 Sangat Kuat)";
+      else if (totalScore >= 75) predicate = "Predikat: Jayyid Jiddan / Baik (Tuntas Mencapai KKTP)";
+      else if (totalScore >= 65) predicate = "Predikat: Jayyid / Cukup (Perlu Penguatan Pada Beberapa Indikator)";
+      else predicate = "Predikat: Perlu Pendampingan & Pengayaan Materi Sejarah";
+      document.getElementById('res-predicate').textContent = predicate;
+
+      // Render analisis per materi
+      const masteryContainer = document.getElementById('topic-mastery-list');
+      masteryContainer.innerHTML = '';
+      Object.keys(topicStats).forEach(topic => {
+        const st = topicStats[topic];
+        const pct = Math.round((st.earnedPoints / st.maxPoints) * 100);
+        masteryContainer.innerHTML += `
+          <div style="background: var(--bg-secondary); padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid var(--border-color);">
+            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.4rem;">
+              <strong style="color: var(--text-main);">${topic}</strong>
+              <span style="color: var(--gold-bright); font-weight: 700;">Skor ${st.earnedPoints}/${st.maxPoints} (${pct}%)</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: ${pct}%;"></div>
+            </div>
+          </div>
+        `;
+      });
+
+      switchScreen('screen-result');
+    }
+
+    function resetToLogin() {
+      document.getElementById('select-kelas').value = '';
+      populateStudents();
+      switchScreen('screen-login');
+    }
+
+    /* ==========================================================================
+       8. PANEL REKAPITULASI GURU & EKSPOR CSV (SESUAI KOLOM PDF)
+       ========================================================================== */
+    function renderTeacherTable() {
+      const filterKelas = document.getElementById('filter-kelas-rekap').value;
+      const filterStatus = document.getElementById('filter-status-rekap').value;
+      const records = loadRecords();
+      const tbody = document.getElementById('teacher-table-body');
+      tbody.innerHTML = '';
+
+      let rowNum = 1;
+      const classesToLoop = filterKelas === 'ALL' ? Object.keys(STUDENT_DATABASE) : [filterKelas];
+
+      classesToLoop.forEach(kls => {
+        STUDENT_DATABASE[kls].forEach(nama => {
+          const key = `${kls}__${nama}`;
+          const rec = records[key];
+
+          if (filterStatus === 'DONE' && !rec) return;
+          if (filterStatus === 'PENDING' && rec) return;
+
+          const tr = document.createElement('tr');
+          if (rec) {
+            tr.innerHTML = `
+              <td>${rowNum++}</td>
+              <td>${rec.waktu}</td>
+              <td><strong>${nama}</strong></td>
+              <td><span class="badge">${kls}</span></td>
+              <td style="color: var(--success); font-weight: 700;">${rec.benar}</td>
+              <td style="color: var(--danger); font-weight: 700;">${rec.salah}</td>
+              <td><strong style="color: var(--gold-bright); font-size: 1rem;">${rec.nilai}</strong></td>
+              <td style="font-size: 0.78rem; color: var(--text-muted); max-width: 240px;">${rec.detail}</td>
+            `;
+          } else {
+            tr.innerHTML = `
+              <td>${rowNum++}</td>
+              <td style="color: var(--text-muted);">-</td>
+              <td>${nama}</td>
+              <td><span class="badge" style="opacity: 0.6;">${kls}</span></td>
+              <td>-</td>
+              <td>-</td>
+              <td><span style="font-size: 0.78rem; color: var(--text-muted);">Belum Ujian</span></td>
+              <td>-</td>
+            `;
+          }
+          tbody.appendChild(tr);
+        });
+      });
+    }
+
+    function exportCSV() {
+      const records = loadRecords();
+      const filterKelas = document.getElementById('filter-kelas-rekap').value;
+      const classesToLoop = filterKelas === 'ALL' ? Object.keys(STUDENT_DATABASE) : [filterKelas];
+
+      let csvRows = [
+        ["Waktu Pengerjaan", "Nama Siswa", "Kelas", "Jumlah Benar", "Jumlah Salah", "Nilai Akhir", "Detail Jawaban"].join(";")
+      ];
+
+      classesToLoop.forEach(kls => {
+        STUDENT_DATABASE[kls].forEach(nama => {
+          const key = `${kls}__${nama}`;
+          const rec = records[key];
+          if (rec) {
+            csvRows.push([
+              `"${rec.waktu}"`,
+              `"${nama}"`,
+              `"${kls}"`,
+              rec.benar,
+              rec.salah,
+              rec.nilai,
+              `"${rec.detail}"`
+            ].join(";"));
+          } else {
+            csvRows.push([
+              `""`,
+              `"${nama}"`,
+              `"${kls}"`,
+              `""`,
+              `""`,
+              `""`,
+              `""`
+            ].join(";"));
+          }
+        });
+      });
+
+      const csvContent = "\uFEFF" + csvRows.join("\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `Rekap_Asesmen_Sejarah_MAN1_Gorontalo_${filterKelas}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      showToast("File Rekap Nilai (.CSV) berhasil diunduh dan siap dibuka di Microsoft Excel.");
+    }
+  </script>
+</body>
+</html>
